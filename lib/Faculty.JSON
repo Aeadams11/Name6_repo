@@ -1,13 +1,13 @@
 [
     {
-        "facultyId": "654321",
+        "facultyId": "6594b968-f276-4223-9372-e90773efbac6",
         "firstName": "Faculty",
         "lastName": "GenericLast",
         "email": "Faculty@email.sc.edu",
-        "departmentId": "CSCE",
+        "departmentId": "9ea4a20c-f961-4c31-aa76-c283ae588c47",
         "isAdvisor": true,
         "adviseeIDs": [
-            "123456"
+            "c2d9df16-4c12-4a09-bfa2-87e39979ae1a"
         ],
         "advisorPrivileges": [
             "viewStudentInfo",

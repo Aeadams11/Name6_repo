@@ -1,9 +1,9 @@
 [
     {
-        "courseID": "CS145",
+        "courseID": "bc3e4b72-4626-469f-9259-9a8344349983",
         "courseName": "Algorithmic Design 1",
         "Description": "An introductory course in algorithimic design in Java.",
-        "Instructor": "Dr. Joe",
+        "Instructor": "553a3fd5-dcbb-4b1a-aa70-1742c895e13b",
         "meetingTime": "MW 10:05-11:20, F 9:00-10:30",
         "prerequisites": [],
         "corequisites": [],
