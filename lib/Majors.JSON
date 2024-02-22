@@ -1,0 +1,10 @@
+[
+    {
+        "majorID": "CS",
+        "majorName": "Computer Science",
+        "department": "Computer Science",
+        "requiredCredits": 120,
+        "coreCourses": [],
+        "electiveCourses": []
+    }
+]

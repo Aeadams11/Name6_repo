@@ -1,0 +1,23 @@
+[
+    {
+        "uscID": "123456",
+        "firstName": "Firstname",
+        "lastName": "Lastname",
+        "username": "student123456",
+        "password": "fakePassword",
+        "email": "student@email.sc.edu",
+        "major": "CS",
+        "advisorId": "654321",
+        "coursesTaken": [
+            "CSCE145",
+            "MATH141"
+        ],
+        "currentSemesterCourses": [
+            "CSCE146",
+            "MATH142",
+            "ENGL101",
+            "CHEM111",
+            "CSCE215"
+        ]
+    }
+]

@@ -1,0 +1,18 @@
+[
+    {
+        "studentID": "123456",
+        "Major": "Computer Science",
+        "completedCourses": [
+            "ENG101,MATH141"
+        ],
+        "remainingCourses": [],
+        "currentGPA": 3.5,
+        "semesterGPA": {
+            "Fall24": 3.5
+        },
+        "grades": {
+            "CSCE145": "B+",
+            "MATH141": "A"
+        }
+    }
+]
