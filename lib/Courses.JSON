@@ -1,0 +1,12 @@
+[
+    {
+        "courseID": "CS145",
+        "courseName": "Algorithmic Design 1",
+        "Description": "An introductory course in algorithimic design in Java.",
+        "Instructor": "Dr. Joe",
+        "meetingTime": "MW 10:05-11:20, F 9:00-10:30",
+        "prerequisites": [],
+        "corequisites": [],
+        "creditHours": 4
+    }
+]

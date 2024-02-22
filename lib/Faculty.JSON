@@ -1,0 +1,19 @@
+[
+    {
+        "facultyId": "654321",
+        "firstName": "Faculty",
+        "lastName": "GenericLast",
+        "email": "Faculty@email.sc.edu",
+        "departmentId": "CSCE",
+        "isAdvisor": true,
+        "adviseeIDs": [
+            "123456"
+        ],
+        "advisorPrivileges": [
+            "viewStudentInfo",
+            "inputCourseCompletion",
+            "approvePlans",
+            "placeHolds"
+        ]
+    }
+]
