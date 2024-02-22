@@ -1,16 +1,16 @@
 [
     {
-        "uscID": "123456",
+        "uscID": "58469d67-e0d7-4c75-a86d-a31d08af789b",
         "firstName": "Firstname",
         "lastName": "Lastname",
         "username": "student123456",
         "password": "fakePassword",
         "email": "student@email.sc.edu",
         "major": "CS",
-        "advisorId": "654321",
+        "advisorId": "6594b968-f276-4223-9372-e90773efbac6",
         "coursesTaken": [
-            "CSCE145",
-            "MATH141"
+            "bc3e4b72-4626-469f-9259-9a8344349983",
+            "9ea4a20c-f961-4c31-aa76-c283ae588c47"
         ],
         "currentSemesterCourses": [
             "CSCE146",
