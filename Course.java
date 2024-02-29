@@ -8,12 +8,6 @@ public class Course {
     private char minGrade;
     private String department;
 
-<<<<<<< HEAD
-    public Course(String courseID, String courseName, String requirements, char minimumGrade, String department) {
-        this.courseID = courseID;
-        this.courseName = courseName;
-        
-=======
     public Course(String courseID, String courseName, char minimumGrade, String department) {
         this.courseID = courseID;
         this.courseName = courseName;
@@ -60,7 +54,6 @@ public class Course {
 
     public void setDepartment(String department) {
         this.department = department;
->>>>>>> bfb067de0cafb87760a647e04f0562fa2d07d0af
     }
 
 }
