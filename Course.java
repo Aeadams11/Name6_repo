@@ -16,5 +16,44 @@ public class Course {
 
     }
 
-    // Getter and setter methods here
+    public String getCourseID() {
+        return courseID;
+    }
+
+    public void setCourseID(String courseID) {
+        this.courseID = courseID;
+    }
+
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
+
+    public ArrayList<Course> getPreReqs() {
+        return preReqs;
+    }
+
+    public void setPreReqs(ArrayList<Course> preReqs) {
+        this.preReqs = preReqs;
+    }
+
+    public char getMinGrade() {
+        return minGrade;
+    }
+
+    public void setMinGrade(char minGrade) {
+        this.minGrade = minGrade;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
 }
