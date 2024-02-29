@@ -6,6 +6,12 @@ public abstract class User {
     protected String password;
     protected boolean permission;
 
+    public enum UserType {
+        STUDENT,
+        ADMIN,
+        LEGAL_GUARDIAN,
+    }
+
     public User(String userID, String firstName, String lastName, String email, String password, boolean permission) {
         this.userID = userID;
         this.firstName = firstName;
@@ -18,6 +24,10 @@ public abstract class User {
     public User getUser(String userID) {
         // TODO
         return null;
+    }
+
+    public UserType getUserType(String userID){
+        return null; 
     }
     // Common methods for login, logout, forgotPassword
 }

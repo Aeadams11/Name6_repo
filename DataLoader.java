@@ -7,7 +7,7 @@ import org.json.simple.parser.JSONParser;
 
 import java.io.FileReader; 
 
-public class DataLoader{ //} extends DataWriter{
+public class DataLoader{ // extends DataWriter{
 
     public static ArrayList<User> getUsers(){
         ArrayList<User> users = new ArrayList<User>();
@@ -17,9 +17,10 @@ public class DataLoader{ //} extends DataWriter{
             JSONParser parser = new JSONParser();
             JSONArray userJSON = (JSONArray)new JSONParser().parse(reader);
 
+            //why errors? :(
             for(int i = 0; i < userJSON.size(); i++) {
                 JSONObject personJSON = (JSONObject)userJSON.get(i);
-                UUID USCID = UUID.fromString((String)personJSON.get(USC_ID));
+                String USCID = (String)personJSON.get(USCID);
                 String firstName = (String)personJSON.get(firstName);
                 String lastName = (String)personJSON.get(lastName);
                 String password = (String)personJSON.get(password);
@@ -35,7 +36,7 @@ public class DataLoader{ //} extends DataWriter{
     }
 
     public static ArrayList<Course> getCourses(){
-        ArrayList<User> users = new ArrayList<User>();
+        ArrayList<Course> courses = new ArrayList<Course>();
 
         try{
             FileReader reader = new FileReader("enter file name here");
@@ -54,7 +55,7 @@ public class DataLoader{ //} extends DataWriter{
             }
 
         
-        return users;
+        return courses;
 
         }catch(Exception e) {
             e.printStackTrace();
