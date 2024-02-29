@@ -34,7 +34,7 @@ public class DataLoader{ //} extends DataWriter{
         }
     }
 
-    public static ArrayList<User> getCourses(){
+    public static ArrayList<Course> getCourses(){
         ArrayList<User> users = new ArrayList<User>();
 
         try{

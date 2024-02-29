@@ -21,3 +21,8 @@ public abstract class User {
     }
     // Common methods for login, logout, forgotPassword
 }
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> bfb067de0cafb87760a647e04f0562fa2d07d0af
