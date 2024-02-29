@@ -1,28 +1,38 @@
 import java.util.ArrayList;
 
 public class Admin extends User {
+
     private String role;
     private String department;
     private int accessLevel;
     private ArrayList<String> assignedSections;
 
-    public User createUserAcc(UserInfo userInfo) {
+    public Admin(String userID, String firstName, String lastName, String email, String password, boolean permission) {
+        super(userID, firstName, lastName, email, password, permission);
+    }
+
+    public User createUserAcc(String userID) {
         // Implementation
+        return null; 
     }
 
     public boolean deleteUserAcc(String userID) {
         // Implementation
+        return true;
     }
 
     public boolean resetUserPass(String userID, String newPassword) {
         // Implementation
+        return true; 
     }
 
     public int assignUserRole(String userID, String role) {
         // Implementation
+        return 0; 
     }
 
-    public Report generateReport(ReportType reportType, ReportParameters parameters) {
+    public Report generateReport(String userID) {
         // Implementation
+        return null; 
     }
 }

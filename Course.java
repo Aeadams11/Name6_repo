@@ -9,7 +9,9 @@ public class Course {
     private String department;
 
     public Course(String courseID, String courseName, String requirements, char minimumGrade, String department) {
-        // Constructor implementation here
+        this.courseID = courseID;
+        this.courseName = courseName;
+        
     }
 
     // Getter and setter methods here

@@ -21,14 +21,4 @@ public abstract class User {
     // Common methods for login, logout, forgotPassword
 }
 
-public class Student extends User {
-    // Student-specific attributes and methods
-}
 
-public class Advisor extends User {
-    // Advisor-specific attributes and methods
-}
-
-public class Admin extends User {
-    // Admin-specific attributes and methods
-}
