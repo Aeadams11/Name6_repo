@@ -21,3 +21,4 @@ public abstract class User {
     }
     // Common methods for login, logout, forgotPassword
 }
+// check if user is returning or new
