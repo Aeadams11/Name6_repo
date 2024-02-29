@@ -3,7 +3,7 @@ public class CourseList {
     private ArrayList<Course> courses;
 
     private CourseList() {
-        courses = new ArrayList<>();
+        courses = DataLoader.getCourses();
     }
 
     public static CourseList getInstance() {

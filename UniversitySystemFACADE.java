@@ -1,8 +1,11 @@
 public class UniversitySystemFACADE {
-    private UserList userList; // Assuming UserList is a class that holds all users
+    private UserList userList;
+    private CourseList courseList; 
 
-    public UniversitySystemFACADE(UserList userList) {
-        this.userList = userList;
+    public UniversitySystemFACADE() {
+        userList.getInstance();
+        courseList.getInstance(); 
+      //  this.userList = userList;
     }
 
     public User login(String USCID, String password) {

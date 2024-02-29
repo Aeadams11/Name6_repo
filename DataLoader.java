@@ -32,4 +32,30 @@ public class DataLoader{ //} extends DataWriter{
             e.printStackTrace();
         }
     }
+
+    public static ArrayList<User> getCourses(){
+        ArrayList<User> users = new ArrayList<User>();
+
+        try{
+            FileReader reader = new FileReader("enter file name here");
+            JSONParser parser = new JSONParser();
+            JSONArray userJSON = (JSONArray)new JSONParser().parse(reader);
+
+            //edit for course instead of user
+            for(int i = 0; i < userJSON.size(); i++) {
+                JSONObject personJSON = (JSONObject)userJSON.get(i);
+                UUID USCID = UUID.fromString((String)personJSON.get(USC_ID));
+                String firstName = (String)personJSON.get(firstName);
+                String lastName = (String)personJSON.get(lastName);
+                String password = (String)personJSON.get(password);
+                String email = (String)personJSON.get(email);
+            }
+
+        
+        return users;
+
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

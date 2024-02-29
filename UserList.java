@@ -5,7 +5,7 @@ public class UserList {
     private ArrayList<User> users;
 
     private UserList() {
-        users = new ArrayList<>();
+        users = DataLoader.getUsers();
     }
 
     public static UserList getInstance() {
@@ -15,7 +15,15 @@ public class UserList {
         return instance;
     }
 
+    public boolean haveUser(String userName){
+        // TODO: loop throuh arraylist, check if user exists
+        return true;
+    }
     public User getUser(String userName) {
-        // Implementation here
+        // check if it exists
+        if(!haveUser(userName)) 
+            return null;
+        // fake user to info to allow it to compile
+        return new User(userName, "Anna", "Adams", "aea5@email.sc.edu", "password123", false);
     }
 }
