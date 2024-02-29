@@ -1,9 +1,10 @@
+import java.util.ArrayList;
+
 public class Course {
     private String courseID;
     private String courseName;
-    private String requirements;
-    private char minimumGrade;
-    private ArrayList<Course> preReq;
+    //hashmap?
+    private ArrayList<Course> preReqs;
     private char minGrade;
     private String department;
 

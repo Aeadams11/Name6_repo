@@ -1,8 +1,9 @@
 import java.util.ArrayList;
+import java.util.Map;
 
 public class ProgressTracker {
     private String studentID;
-    private Degree degreeProgram;
+    private Major majorProgram;
     private ArrayList<Course> completedCourses;
     private ArrayList<Course> remainingCourses;
     private double currentGPA;

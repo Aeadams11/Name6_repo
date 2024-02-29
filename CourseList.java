@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class CourseList {
     private static CourseList instance;
     private ArrayList<Course> courses;
