@@ -1,9 +1,11 @@
+import java.util.ArrayList;
+
 public class CourseList {
     private static CourseList instance;
     private ArrayList<Course> courses;
 
     private CourseList() {
-        courses = new ArrayList<>();
+        courses = DataLoader.getCourses();
     }
 
     public static CourseList getInstance() {
