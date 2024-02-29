@@ -45,4 +45,8 @@ public class ProgressTracker {
     public Map<Semester, Double> getHistoricalGPA() {
         // Implementation
     }
+
+    public void getEightSemPlan(String userID) {
+        return;
+    }
 }

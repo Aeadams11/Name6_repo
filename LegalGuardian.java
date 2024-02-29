@@ -1,4 +1,4 @@
-public class LegalGuardian {
+public class LegalGuardian extends Student {
     private String firstName;
     private String lastName;
     private String relationshipToStudent;
