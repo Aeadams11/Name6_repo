@@ -8,17 +8,21 @@ public abstract class User {
 
     public User(String userID, String firstName, String lastName, String email, String password, boolean permission) {
         this.userID = userID;
-        this.firstName = firstName; 
+        this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.password = password; 
+        this.password = password;
         this.permission = permission;
     }
+
     public User getUser(String userID) {
-        // TODO 
+        // TODO
         return null;
     }
     // Common methods for login, logout, forgotPassword
 }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> bfb067de0cafb87760a647e04f0562fa2d07d0af
