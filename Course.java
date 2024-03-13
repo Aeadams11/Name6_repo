@@ -3,17 +3,23 @@ import java.util.ArrayList;
 public class Course {
     private String courseID;
     private String courseName;
-    // hashmap?
-    private ArrayList<Course> preReqs;
-    private char minGrade;
-    private String department;
+    private String description;
+    private String instructor; // Assuming this is an ID or identifier for an instructor
+    private String meetingTime;
+    private ArrayList<String> prerequisites; // Keeping as String for IDs
+    private ArrayList<String> corequisites; // Similarly for corequisites
+    private int creditHours;
 
-    public Course(String courseID, String courseName, char minimumGrade, String department) {
+    public Course(String courseID, String courseName, String description, String instructor,
+            String meetingTime, int creditHours) {
         this.courseID = courseID;
         this.courseName = courseName;
-        this.minGrade = minimumGrade;
-        this.department = department;
-
+        this.description = description;
+        this.instructor = instructor;
+        this.meetingTime = meetingTime;
+        this.creditHours = creditHours;
+        this.prerequisites = new ArrayList<>();
+        this.corequisites = new ArrayList<>();
     }
 
     public String getCourseID() {

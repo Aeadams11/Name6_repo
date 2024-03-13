@@ -23,11 +23,58 @@ public abstract class User {
 
     public User getUser(String userID) {
         // TODO
-        return null;
+        return users.get(userID);
     }
 
-    public UserType getUserType(String userID){
-        return null; 
+    public String getUserID() {
+        return userID;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public boolean isPermission() {
+        return permission;
+    }
+
+    public abstract UserType getUserType(); // Made abstract to force subclasses to implement
+
+    // Setters
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setPermission(boolean permission) {
+        this.permission = permission;
     }
     // Common methods for login, logout, forgotPassword
 }
