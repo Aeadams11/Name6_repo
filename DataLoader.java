@@ -52,7 +52,7 @@ public class DataLoader { // extends DataWriter{
                 String description = (String) courseJSON.get("Description");
                 String instructor = (String) courseJSON.get("Instructor");
                 String meetingTime = (String) courseJSON.get("meetingTime");
-                long creditHours = (long) courseJSON.get("creditHours"); // Assuming creditHours is an integer in JSON
+                long creditHours = (long) courseJSON.get("creditHours");
 
                 Course course = new Course(courseID, courseName, description, instructor, meetingTime,
                         (int) creditHours);
@@ -63,6 +63,7 @@ public class DataLoader { // extends DataWriter{
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return courses;
 
     }
 }
