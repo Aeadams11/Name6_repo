@@ -1,40 +1,58 @@
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.UUID;
-
+import java.io.FileReader;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-import java.io.FileReader;
-
-public class DataLoader { // extends DataWriter{
+public class DataLoader {
 
     public static ArrayList<User> getUsers() {
-        ArrayList<User> users = new ArrayList<User>();
+        ArrayList<User> users = new ArrayList<>();
         JSONParser parser = new JSONParser();
-
         try {
-            FileReader reader = new FileReader("users.json"); // Correct file name
-            JSONArray userJSON = (JSONArray) parser.parse(reader);
-
-            for (int i = 0; i < userJSON.size(); i++) {
-                JSONObject personJSON = (JSONObject) userJSON.get(i);
-                String USCID = (String) personJSON.get("USCID");
-                String firstName = (String) personJSON.get("firstName");
-                String lastName = (String) personJSON.get("lastName");
-                String password = (String) personJSON.get("password");
-                String email = (String) personJSON.get("email");
-                boolean permission = (Boolean) personJSON.get("permission");
-                Student user = new Student(USCID, firstName, lastName, password, email, permission);
-                users.add(user);
+            FileReader reader = new FileReader("users.json");
+            JSONArray usersJSON = (JSONArray) parser.parse(reader);
+            for (Object o : usersJSON) {
+                JSONObject userJSON = (JSONObject) o;
+                UserType type = User.UserType.valueOf((String) userJSON.get("type"));
+                switch (type) {
+                    case User.UserType.STUDENT:
+                        users.add(parseStudent(userJSON));
+                        break;
+                    case User.UserType.ADMIN:
+                        users.add(parseFaculty(userJSON));
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Unknown user type: " + type);
+                }
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
         return users;
     }
+
+    private static Student parseStudent(JSONObject userJSON) {
+        return new Student(
+                (String) userJSON.get("uscID"),
+                (String) userJSON.get("firstName"),
+                (String) userJSON.get("lastName"),
+                (String) userJSON.get("email"),
+                (String) userJSON.get("password"),
+                true);
+    }
+
+    private static Admin parseFaculty(JSONObject userJSON) {
+        return new Admin(
+                (String) userJSON.get("facultyId"),
+                (String) userJSON.get("firstName"),
+                (String) userJSON.get("lastName"),
+                (String) userJSON.get("email"),
+                "password",
+                true);
+    }
+
+}
 
     public static ArrayList<Course> getCourses() {
         ArrayList<Course> courses = new ArrayList<Course>();

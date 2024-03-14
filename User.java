@@ -52,7 +52,6 @@ public abstract class User {
 
     public abstract UserType getUserType(); // Made abstract to force subclasses to implement
 
-    // Setters
     public void setUserID(String userID) {
         this.userID = userID;
     }

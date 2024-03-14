@@ -36,10 +36,11 @@ public class DataWriter {
         }
     }
 
+    @SuppressWarnings("unchecked")
     private static JSONObject getUserJSON(User user) {
         JSONObject userDetails = new JSONObject();
-        userDetails.put(USER_ID, user.getID().toString());
-        userDetails.put(USERNAME, user.getUserName());
+        userDetails.put(USER_ID, user.getUserID().toString());
+        userDetails.put(USERNAME, user.getEmail());
         userDetails.put(FIRST_NAME, user.getFirstName());
         userDetails.put(LAST_NAME, user.getLastName());
         userDetails.put(EMAIL, user.getEmail());
