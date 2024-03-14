@@ -26,4 +26,9 @@ public class UserList {
         // fake user to info to allow it to compile
         return new User(userName, "Anna", "Adams", "aea5@email.sc.edu", "password123", false);
     }
+
+    public static void createUser(String userID, String firstName, String lastName, String email, String password, User.UserType type) {
+        //create user
+        //add to user list   
+    }
 }
