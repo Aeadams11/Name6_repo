@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public abstract class User {
     protected String userID;
     protected String firstName;
@@ -13,6 +16,8 @@ public abstract class User {
         LEGAL_GUARDIAN,
     }
 
+    private static Map<String, User> users = new HashMap<>();
+
     public User(String userID, String firstName, String lastName, String email, String password, boolean permission) {
         this.userID = userID;
         this.firstName = firstName;
@@ -23,7 +28,6 @@ public abstract class User {
     }
 
     public User getUser(String userID) {
-        // TODO
         return users.get(userID);
     }
 
@@ -53,7 +57,6 @@ public abstract class User {
 
     public abstract UserType getUserType(); // Made abstract to force subclasses to implement
 
-    // Setters
     public void setUserID(String userID) {
         this.userID = userID;
     }

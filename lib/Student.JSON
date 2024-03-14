@@ -18,6 +18,7 @@
             "ENGL101",
             "CHEM111",
             "CSCE215"
-        ]
+        ],
+        "type": "STUDENT"
     }
 ]
