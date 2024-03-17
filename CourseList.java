@@ -17,5 +17,6 @@ public class CourseList {
 
     public ArrayList<Course> getCourses(String keyword) {
         // Implementation here
+        return null;
     }
 }
