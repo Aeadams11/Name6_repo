@@ -27,12 +27,6 @@ public abstract class User {
         this.permission = permission;
     }
 
-    //do we even need this method? we have it in userlist. i think no. 
-    // public User getUser(String userID) {
-    //     // TODO
-    //     return UserList.getUser(userID);
-    // }
-
     public String getUserID() {
         return userID;
     }

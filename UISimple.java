@@ -7,12 +7,12 @@ public class UISimple {
     public static String[] loginOptions = {"Create an account", "Log in to a new account"};
     public static String[] studentOptions = {"Generate personal 8 semester plan", "View completed courses", "View unfulfilled requirements", "Choose application area"};
     public static String[] adminOptions = {"View advisee list", "Search for a student"};
-    public static String[] studentAdvisorOptions = {"View completed courses", "View unfulfilled requirements", "View warnings", "Leave a note", "Add to advisee list", "Remove from advisee list"}; 
+    public static String[] studentAdvisorOptions = {"View completed courses", "View unfulfilled requirements", "View warnings", "Leave a note", "View/Approve Transfer Credits", "Add to advisee list", "Remove from advisee list"}; 
     public static String[] guardianOptions = {"guardian options"}; 
     public static String[] accountTypes = {"Student Account", "Administrative Account", "Legal Guardian Account"};
 
     UISimple(){
-        
+        //create instances in sprint 2
     }
 
     public void run(){

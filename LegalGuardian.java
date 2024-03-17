@@ -6,7 +6,6 @@ public class LegalGuardian extends Student {
 
     private String firstName;
     private String lastName;
-    //private String relationshipToStudent;
     private boolean permission;
 
     public String getFirstName() {
@@ -17,18 +16,10 @@ public class LegalGuardian extends Student {
         return this.lastName;
     }
 
-    // public String getRelationshipToStudent() {
-    //     this feels unecessary
-    // }
-
     public boolean getHasPermission() {
         //return true if student has permission
         return true;
     }
-
-    // public void setRelationshipToStudent(String relationship) {
-    //     // Implementation
-    // }
 
     //i feel like we dont need this. if they dont have permission then they dont have, shouldnt need to change
     // public void setHasPermission(boolean permission) {

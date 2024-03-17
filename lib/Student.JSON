@@ -1,11 +1,11 @@
 [
     {
         "uscID": "58469d67-e0d7-4c75-a86d-a31d08af789b",
-        "firstName": "Firstname",
-        "lastName": "Lastname",
-        "username": "student123456",
+        "firstName": "Brax",
+        "lastName": "West",
+        "username": "bwest",
         "password": "fakePassword",
-        "email": "student@email.sc.edu",
+        "email": "bwest@email.sc.edu",
         "major": "CS",
         "advisorId": "6594b968-f276-4223-9372-e90773efbac6",
         "coursesTaken": [
