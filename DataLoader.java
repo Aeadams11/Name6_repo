@@ -6,30 +6,38 @@ import org.json.simple.parser.JSONParser;
 
 public class DataLoader {
 
-    public static ArrayList<User> getUsers() {
-        ArrayList<User> users = new ArrayList<>();
+    public static ArrayList<User> getStudents() {
+        ArrayList<User> students = new ArrayList<>();
         JSONParser parser = new JSONParser();
         try {
-            FileReader reader = new FileReader("users.json");
-            JSONArray usersJSON = (JSONArray) parser.parse(reader);
-            for (Object o : usersJSON) {
-                JSONObject userJSON = (JSONObject) o;
-                UserType type = User.UserType.valueOf((String) userJSON.get("type"));
-                switch (type) {
-                    case User.UserType.STUDENT:
-                        users.add(parseStudent(userJSON));
-                        break;
-                    case User.UserType.ADMIN:
-                        users.add(parseFaculty(userJSON));
-                        break;
-                    default:
-                        throw new IllegalArgumentException("Unknown user type: " + type);
-                }
+            FileReader reader = new FileReader("student.json");
+            JSONArray studentsJSON = (JSONArray) parser.parse(reader);
+            for (Object o : studentsJSON) {
+                JSONObject studentJSON = (JSONObject) o;
+                User student = parseStudent(studentJSON);
+                students.add(student);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return users;
+        return students;
+    }
+
+    public static ArrayList<User> getFaculty() {
+        ArrayList<User> facultyMembers = new ArrayList<>();
+        JSONParser parser = new JSONParser();
+        try {
+            FileReader reader = new FileReader("faculty.json");
+            JSONArray facultyJSON = (JSONArray) parser.parse(reader);
+            for (Object o : facultyJSON) {
+                JSONObject facultyMemberJSON = (JSONObject) o;
+                User facultyMember = parseFaculty(facultyMemberJSON);
+                facultyMembers.add(facultyMember);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return facultyMembers;
     }
 
     private static Student parseStudent(JSONObject userJSON) {
