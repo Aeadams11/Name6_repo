@@ -1,68 +1,90 @@
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.UUID;
-
+import java.io.FileReader;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-import java.io.FileReader;
+public class DataLoader {
 
-public class DataLoader { // extends DataWriter{
-
-    public static ArrayList<User> getUsers() {
-        ArrayList<User> users = new ArrayList<User>();
+    public static ArrayList<User> getStudents() {
+        ArrayList<User> students = new ArrayList<>();
         JSONParser parser = new JSONParser();
-
         try {
-            FileReader reader = new FileReader("users.json"); // Correct file name
-            JSONArray userJSON = (JSONArray) parser.parse(reader);
-
-            for (int i = 0; i < userJSON.size(); i++) {
-                JSONObject personJSON = (JSONObject) userJSON.get(i);
-                String USCID = (String) personJSON.get("USCID");
-                String firstName = (String) personJSON.get("firstName");
-                String lastName = (String) personJSON.get("lastName");
-                String password = (String) personJSON.get("password");
-                String email = (String) personJSON.get("email");
-                boolean permission = (Boolean) personJSON.get("permission");
-                Student user = new Student(USCID, firstName, lastName, password, email, permission);
-                users.add(user);
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return users;
-    }
-
-    public static ArrayList<Course> getCourses() {
-        ArrayList<Course> courses = new ArrayList<Course>();
-
-        try {
-            FileReader reader = new FileReader("courses.json");
-            JSONParser parser = new JSONParser();
-            JSONArray coursesJSON = (JSONArray) new JSONParser().parse(reader);
-
-            // edit for course instead of user
-            for (Object o : coursesJSON) {
-                JSONObject courseJSON = (JSONObject) o;
-                String courseID = (String) courseJSON.get("courseID");
-                String courseName = (String) courseJSON.get("courseName");
-                String description = (String) courseJSON.get("Description");
-                String instructor = (String) courseJSON.get("Instructor");
-                String meetingTime = (String) courseJSON.get("meetingTime");
-                long creditHours = (long) courseJSON.get("creditHours"); // Assuming creditHours is an integer in JSON
-
-                Course course = new Course(courseID, courseName, description, instructor, meetingTime,
-                        (int) creditHours);
-
-                return courses;
-
+            FileReader reader = new FileReader("student.json");
+            JSONArray studentsJSON = (JSONArray) parser.parse(reader);
+            for (Object o : studentsJSON) {
+                JSONObject studentJSON = (JSONObject) o;
+                User student = parseStudent(studentJSON);
+                students.add(student);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        return students;
     }
+
+    public static ArrayList<User> getFaculty() {
+        ArrayList<User> facultyMembers = new ArrayList<>();
+        JSONParser parser = new JSONParser();
+        try {
+            FileReader reader = new FileReader("faculty.json");
+            JSONArray facultyJSON = (JSONArray) parser.parse(reader);
+            for (Object o : facultyJSON) {
+                JSONObject facultyMemberJSON = (JSONObject) o;
+                User facultyMember = parseFaculty(facultyMemberJSON);
+                facultyMembers.add(facultyMember);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return facultyMembers;
+    }
+
+    private static Student parseStudent(JSONObject userJSON) {
+        return new Student(
+                (String) userJSON.get("uscID"),
+                (String) userJSON.get("firstName"),
+                (String) userJSON.get("lastName"),
+                (String) userJSON.get("email"),
+                (String) userJSON.get("password"),
+                true);
+    }
+
+    private static Admin parseFaculty(JSONObject userJSON) {
+        return new Admin(
+                (String) userJSON.get("facultyId"),
+                (String) userJSON.get("firstName"),
+                (String) userJSON.get("lastName"),
+                (String) userJSON.get("email"),
+                "password",
+                true);
+    }
+
+}
+
+public static ArrayList<Course> getCourses() {
+    ArrayList<Course> courses = new ArrayList<>();
+    JSONParser parser = new JSONParser();
+
+    try {
+        FileReader reader = new FileReader("courses.json");
+        JSONArray coursesJSON = (JSONArray) parser.parse(reader);
+        for (Object o : coursesJSON) {
+            JSONObject courseJSON = (JSONObject) o;
+            String courseID = (String) courseJSON.get("courseID");
+            String courseName = (String) courseJSON.get("courseName");
+            String description = (String) courseJSON.get("description");
+            String instructor = (String) courseJSON.get("instructor");
+            String meetingTime = (String) courseJSON.get("meetingTime");
+            int creditHours = ((Long) courseJSON.get("creditHours")).intValue();
+            char minGrade = ((String) courseJSON.get("minGrade")).charAt(0);
+            String department = (String) courseJSON.get("department");
+            Course course = new Course(courseID, courseName, description, instructor, meetingTime, creditHours,
+                    minGrade, department);
+            courses.add(course);
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return courses;
 }

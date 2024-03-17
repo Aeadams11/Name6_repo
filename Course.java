@@ -9,9 +9,11 @@ public class Course {
     private ArrayList<String> prerequisites; // Keeping as String for IDs
     private ArrayList<String> corequisites; // Similarly for corequisites
     private int creditHours;
+    private char minGrade;
+    private String department;
 
     public Course(String courseID, String courseName, String description, String instructor,
-            String meetingTime, int creditHours) {
+            String meetingTime, int creditHours, char minGrade, String department) {
         this.courseID = courseID;
         this.courseName = courseName;
         this.description = description;
@@ -20,6 +22,8 @@ public class Course {
         this.creditHours = creditHours;
         this.prerequisites = new ArrayList<>();
         this.corequisites = new ArrayList<>();
+        this.minGrade = minGrade;
+        this.department = department;
     }
 
     public String getCourseID() {
@@ -38,12 +42,12 @@ public class Course {
         this.courseName = courseName;
     }
 
-    public ArrayList<Course> getPreReqs() {
-        return preReqs;
+    public ArrayList<String> getPreReqs() {
+        return prerequisites;
     }
 
-    public void setPreReqs(ArrayList<Course> preReqs) {
-        this.preReqs = preReqs;
+    public void setPreReqs(ArrayList<String> preReqs) {
+        this.prerequisites = preReqs;
     }
 
     public char getMinGrade() {

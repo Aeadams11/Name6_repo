@@ -9,11 +9,6 @@
         "adviseeIDs": [
             "c2d9df16-4c12-4a09-bfa2-87e39979ae1a"
         ],
-        "advisorPrivileges": [
-            "viewStudentInfo",
-            "inputCourseCompletion",
-            "approvePlans",
-            "placeHolds"
-        ]
+        "type": "ADMIN"
     }
 ]
