@@ -1,6 +1,6 @@
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.HashMap; // Import statement for HashMap
+import java.util.HashMap; 
 import java.util.Map;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -8,7 +8,7 @@ import org.json.simple.parser.JSONParser;
 
 public class DataLoader {
     public static Map<String, User> getUsers() {
-        Map<String, User> users = new HashMap<>(); // Using HashMap to store users
+        Map<String, User> users = new HashMap<>(); 
         JSONParser parser = new JSONParser();
         try {
             FileReader reader = new FileReader("users.json");
@@ -25,8 +25,7 @@ public class DataLoader {
     }
 
     private static User parseUser(JSONObject userJSON) {
-        // Parse the JSON object to create a User instance
-        // Assuming you have a User class with appropriate constructor and methods
+        
         String userID = (String) userJSON.get("userID");
         String firstName = (String) userJSON.get("firstName");
         String lastName = (String) userJSON.get("lastName");

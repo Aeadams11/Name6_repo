@@ -6,7 +6,7 @@ public class LegalGuardian extends Student {
 
     public LegalGuardian(String userID, String firstName, String lastName, String email, String password,
                          String relationshipToStudent, boolean permission) {
-        super(userID, firstName, lastName, email, password, false); // Assuming LegalGuardian is not a student
+        super(userID, firstName, lastName, email, password, false); 
         this.relationshipToStudent = relationshipToStudent;
         this.permission = permission;
     }

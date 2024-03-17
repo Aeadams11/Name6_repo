@@ -12,27 +12,27 @@ public class Admin extends User {
     }
 
     public User createUserAcc(String userID) {
-        // Implementation
+     
         return null; 
     }
 
     public boolean deleteUserAcc(String userID) {
-        // Implementation
+        
         return true;
     }
 
     public boolean resetUserPass(String userID, String newPassword) {
-        // Implementation
+       
         return true; 
     }
 
     public int assignUserRole(String userID, String role) {
-        // Implementation
+      
         return 0; 
     }
 
     public Report generateReport(String userID) {
-        // Implementation
+        
         return null; 
     }
 }

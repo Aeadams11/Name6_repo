@@ -12,10 +12,10 @@ public class UniversitySystemFACADE {
     public User login(String USCID, String password) {
         for (User user : userList.getAllUsers()) {
             if (user.getUserID().equals(USCID) && user.getPassword().equals(password)) {
-                return user; // User found and password matches
+                return user; 
             }
         }
-        return null; // User not found or password does not match
+        return null; 
     }
 }
 

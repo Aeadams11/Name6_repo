@@ -6,7 +6,6 @@ public class MajorList {
 
     private MajorList() {
         majors = new ArrayList<>();
-        // Load majors from JSON file if needed
     }
 
     public static MajorList getInstance() {
@@ -23,7 +22,6 @@ public class MajorList {
     public ArrayList<Major> getMajor(String keyword) {
         ArrayList<Major> filteredMajors = new ArrayList<>();
         for (Major major : majors) {
-            // Assuming Major has a getName method or similar to get the major's name
             if (major.getName().toLowerCase().contains(keyword.toLowerCase())) {
                 filteredMajors.add(major);
             }

@@ -23,25 +23,25 @@ public class ApplicationArea {
     }
 
     public ArrayList<Course> listCourses() {
-        // Implementation
+        
         return null;
     }
 
     public String getAreaDescription() {
-        // Implementation
+        
         return "description"; 
     }
 
     public void addRequiredCourse(Course course) {
-        // Implementation
+       
     }
 
     public void addOptionalCourse(Course course) {
-        // Implementation
+        
     }
 
     public boolean removeCourse(String courseID) {
-        // Implementation
+        
         return true; 
     }
 }

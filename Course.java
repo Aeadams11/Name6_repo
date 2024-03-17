@@ -6,7 +6,7 @@ public class Course {
     private String description;
     private String instructor;
     private String meetingTime;
-    private HashMap<String, Integer> prerequisites; // Using HashMap to store prerequisite courses with their IDs
+    private HashMap<String, Integer> prerequisites; 
     private int creditHours;
 
     public Course(String courseID, String courseName, String description, String instructor,
@@ -17,10 +17,9 @@ public class Course {
         this.instructor = instructor;
         this.meetingTime = meetingTime;
         this.creditHours = creditHours;
-        this.prerequisites = new HashMap<>(); // Initialize prerequisites as a HashMap
+        this.prerequisites = new HashMap<>(); 
     }
 
-    // Getters and setters
     public String getCourseID() {
         return courseID;
     }
