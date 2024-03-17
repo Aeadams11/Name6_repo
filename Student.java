@@ -74,4 +74,8 @@ public class Student extends User {
         this.major = major;
     }
 
+    public User.UserType getUserType() {
+        return UserType.STUDENT; 
+    }
+
 }

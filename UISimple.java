@@ -21,6 +21,7 @@ public class UISimple {
     }
 
     public void scenario1(){
+        //in sprint 2 we will do switch cases after displaying, but for now we are hardcoding these scenarios
         System.out.println(WELCOME_MESSAGE);
         displayOptions(loginOptions);
         int loginChoice = keyboard.nextInt(); 
@@ -84,7 +85,7 @@ public class UISimple {
         String password = keyboard.nextLine();
         User.login(username, password);
         //System.out.println("Welcome, " + User.getFirstName());
-        System.out.println("\nWelcome");
+        System.out.println("Welcome!"); 
     }
 
     public void searchStudent(){

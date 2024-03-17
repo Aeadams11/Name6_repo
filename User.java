@@ -22,10 +22,11 @@ public abstract class User {
         this.permission = permission;
     }
 
-    public User getUser(String userID) {
-        // TODO
-        return users.get(userID);
-    }
+    //do we even need this method? we have it in userlist. i think no. 
+    // public User getUser(String userID) {
+    //     // TODO
+    //     return UserList.getUser(userID);
+    // }
 
     public String getUserID() {
         return userID;
@@ -80,5 +81,12 @@ public abstract class User {
     // Common methods for login, logout, forgotPassword
     public static boolean login(String username, String password) {
         return true; 
+    }
+
+    public static boolean logout(){
+        return true;
+    }
+    public static void forgotPassword(){
+
     }
 }
