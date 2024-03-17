@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Course {
     private String courseID;
@@ -6,22 +6,18 @@ public class Course {
     private String description;
     private String instructor;
     private String meetingTime;
-    private ArrayList<String> prerequisites;
-    private ArrayList<String> corequisites;
+    private HashMap<String, Integer> prerequisites; // Using HashMap to store prerequisite courses with their IDs
     private int creditHours;
-    private ProgressTracker.Semester semester; // Corrected type
 
     public Course(String courseID, String courseName, String description, String instructor,
-                  String meetingTime, int creditHours, ProgressTracker.Semester semester) {
+                  String meetingTime, int creditHours) {
         this.courseID = courseID;
         this.courseName = courseName;
         this.description = description;
         this.instructor = instructor;
         this.meetingTime = meetingTime;
         this.creditHours = creditHours;
-        this.semester = semester; // Initialize semester
-        this.prerequisites = new ArrayList<>();
-        this.corequisites = new ArrayList<>();
+        this.prerequisites = new HashMap<>(); // Initialize prerequisites as a HashMap
     }
 
     // Getters and setters
@@ -65,20 +61,12 @@ public class Course {
         this.meetingTime = meetingTime;
     }
 
-    public ArrayList<String> getPrerequisites() {
+    public HashMap<String, Integer> getPrerequisites() {
         return prerequisites;
     }
 
-    public void setPrerequisites(ArrayList<String> prerequisites) {
+    public void setPrerequisites(HashMap<String, Integer> prerequisites) {
         this.prerequisites = prerequisites;
-    }
-
-    public ArrayList<String> getCorequisites() {
-        return corequisites;
-    }
-
-    public void setCorequisites(ArrayList<String> corequisites) {
-        this.corequisites = corequisites;
     }
 
     public int getCreditHours() {
@@ -87,13 +75,5 @@ public class Course {
 
     public void setCreditHours(int creditHours) {
         this.creditHours = creditHours;
-    }
-
-    public ProgressTracker.Semester getSemester() {
-        return semester;
-    }
-
-    public void setSemester(ProgressTracker.Semester semester) {
-        this.semester = semester;
     }
 }
