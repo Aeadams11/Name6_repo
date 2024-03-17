@@ -15,20 +15,22 @@ public class UserList {
         return instance;
     }
 
-    public boolean haveUser(String userName){
+    public boolean haveUser(String userName) {
         // TODO: loop throuh arraylist, check if user exists
         return true;
     }
+
     public User getUser(String userName) {
         // check if it exists
-        if(!haveUser(userName)) 
+        if (!haveUser(userName))
             return null;
         // fake user to info to allow it to compile
         return new User(userName, "Anna", "Adams", "aea5@email.sc.edu", "password123", false);
     }
 
-    public static void createUser(String userID, String firstName, String lastName, String email, String password, User.UserType type) {
-        //create user
-        //add to user list   
+    public static void createUser(String userID, String firstName, String lastName, String email, String password,
+            User.UserType type) {
+        // create user
+        // add to user list
     }
 }

@@ -54,34 +54,29 @@ public class DataLoader {
 
 }
 
-    public static ArrayList<Course> getCourses() {
-        ArrayList<Course> courses = new ArrayList<Course>();
+public static ArrayList<Course> getCourses() {
+    ArrayList<Course> courses = new ArrayList<>();
+    JSONParser parser = new JSONParser();
 
-        try {
-            FileReader reader = new FileReader("courses.json");
-            JSONParser parser = new JSONParser();
-            JSONArray coursesJSON = (JSONArray) new JSONParser().parse(reader);
-
-            // edit for course instead of user
-            for (Object o : coursesJSON) {
-                JSONObject courseJSON = (JSONObject) o;
-                String courseID = (String) courseJSON.get("courseID");
-                String courseName = (String) courseJSON.get("courseName");
-                String description = (String) courseJSON.get("Description");
-                String instructor = (String) courseJSON.get("Instructor");
-                String meetingTime = (String) courseJSON.get("meetingTime");
-                long creditHours = (long) courseJSON.get("creditHours");
-
-                Course course = new Course(courseID, courseName, description, instructor, meetingTime,
-                        (int) creditHours);
-
-                return courses;
-
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+    try {
+        FileReader reader = new FileReader("courses.json");
+        JSONArray coursesJSON = (JSONArray) parser.parse(reader);
+        for (Object o : coursesJSON) {
+            JSONObject courseJSON = (JSONObject) o;
+            String courseID = (String) courseJSON.get("courseID");
+            String courseName = (String) courseJSON.get("courseName");
+            String description = (String) courseJSON.get("description");
+            String instructor = (String) courseJSON.get("instructor");
+            String meetingTime = (String) courseJSON.get("meetingTime");
+            int creditHours = ((Long) courseJSON.get("creditHours")).intValue();
+            char minGrade = ((String) courseJSON.get("minGrade")).charAt(0);
+            String department = (String) courseJSON.get("department");
+            Course course = new Course(courseID, courseName, description, instructor, meetingTime, creditHours,
+                    minGrade, department);
+            courses.add(course);
         }
-        return courses;
-
+    } catch (Exception e) {
+        e.printStackTrace();
     }
+    return courses;
 }
