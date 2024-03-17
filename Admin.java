@@ -35,4 +35,9 @@ public class Admin extends User {
         // Implementation
         return null; 
     }
+
+    public static boolean searchUser(String id){
+        //return true if user is found
+        return true;
+    }
 }

@@ -27,8 +27,10 @@ public class UserList {
         return new User(userName, "Anna", "Adams", "aea5@email.sc.edu", "password123", false);
     }
 
-    public static void createUser(String userID, String firstName, String lastName, String email, String password, User.UserType type) {
+    public static boolean createUser(String userID, String firstName, String lastName, String email, String password, User.UserType type) {
         //create user
-        //add to user list   
+        //add to user list 
+        //return true if account is successfully created
+        return true;   
     }
 }
