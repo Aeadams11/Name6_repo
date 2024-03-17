@@ -8,7 +8,7 @@ public abstract class User {
     protected String email;
     protected String password;
     protected boolean permission;
-    protected UserType type; 
+    protected UserType type;
 
     public enum UserType {
         STUDENT,
@@ -80,8 +80,9 @@ public abstract class User {
     public void setPermission(boolean permission) {
         this.permission = permission;
     }
+
     // Common methods for login, logout, forgotPassword
     public static boolean login(String username, String password) {
-        return true; 
+        return true;
     }
 }
