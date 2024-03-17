@@ -25,7 +25,9 @@ public class UserList {
         if (!haveUser(userName))
             return null;
         // fake user to info to allow it to compile
-        return new User(userName, "Anna", "Adams", "aea5@email.sc.edu", "password123", false);
+        // error: Cannot instantiate the type User
+        User anna = new Student(userName, "Anna", "Adams", "aea5@email.sc.edu", "password123", false);
+        return anna;
     }
 
     public static boolean createUser(String userID, String firstName, String lastName, String email, String password, User.UserType type) {
