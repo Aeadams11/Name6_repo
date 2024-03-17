@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+public class Major{
+    
+}
+=======
 import java.util.ArrayList;
 
 public abstract class Major {
@@ -5,6 +10,7 @@ public abstract class Major {
     private ArrayList<Course> requiredCourses;
     private ArrayList<Course> electiveCourses;
 
+<<<<<<< HEAD
     public Major(String name) {
         this.name = name;
         this.requiredCourses = new ArrayList<Course>();
@@ -31,3 +37,8 @@ public abstract class Major {
         return new ArrayList<Course>(this.electiveCourses);
     }
 }
+=======
+    // Constructor and methods
+}
+>>>>>>> main
+>>>>>>> branch-Nazire
