@@ -6,7 +6,7 @@ public class MajorList {
 
     private MajorList() {
         majors = new ArrayList<>();
-        // Initialize your list with Major objects here, if needed
+        // Load majors from JSON file if needed
     }
 
     public static MajorList getInstance() {
@@ -16,7 +16,10 @@ public class MajorList {
         return instance;
     }
 
-    // Method to get majors based on a keyword without using stream
+    public void addMajor(Major major) {
+        majors.add(major);
+    }
+
     public ArrayList<Major> getMajor(String keyword) {
         ArrayList<Major> filteredMajors = new ArrayList<>();
         for (Major major : majors) {

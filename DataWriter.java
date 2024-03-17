@@ -1,77 +1,48 @@
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-
+import java.util.Map;
 import org.json.simple.JSONArray;
-import org.json.simple.JSONObject; 
+import org.json.simple.JSONObject;
 
 public class DataWriter {
-    
-    public static void saveUsers() {
-        //Users users = Users.getInstance();
-        ArrayList<User> userList = users.getUsers(); //users.JSON
-        JSONArray jsonUsers = new JSONArray();
+    private static final String USER_ID = "userID";
+    private static final String FIRST_NAME = "firstName";
+    private static final String LAST_NAME = "lastName";
+    private static final String EMAIL = "email";
+    private static final String PASSWORD = "password";
+    private static final String PERMISSION = "permission";
 
-        //creating all the json objects
-        for(int i=0; i < userList.size(); i++){
-            jsonUsers.add(getUserJSON(userList.get(i)));
+    private Map<String, User> users;
+
+    public DataWriter(Map<String, User> users) {
+        this.users = users;
+    }
+
+    public void saveUsersToFile(String fileName) {
+        JSONArray jsonUsers = new JSONArray();
+        for (User user : users.values()) {
+            jsonUsers.add(getUserJSON(user));
         }
 
-        //write JSON file
-        try (FileWriter file = new FileWriter("file name here")) {
+        try (FileWriter file = new FileWriter(fileName)) {
             file.write(jsonUsers.toJSONString());
             file.flush();
-        }
-        catch (IOException e) {
+            System.out.println("Users data saved to file: " + fileName);
+        } catch (IOException e) {
             e.printStackTrace();
+            System.err.println("Error occurred while saving users to file: " + e.getMessage());
         }
     }
-    //Super duper unfinished!
-    public static JSONObject getUserJSON(User user) {
+
+    private JSONObject getUserJSON(User user) {
         JSONObject userDetails = new JSONObject();
-        userDetails.put(USERID, user.getID().toString());
-        userDetails.put(username, user.getUserName());
-        userDetails.put(firstName, user.getFirstName());
-        userDetails.put(lastName, user.getLastName());
-        userDetails.put(email, user.getEmail());
-
-        return userDetails; 
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // Assuming you have access to current lists of users and courses somewhere in your application
-    private ArrayList<User> users;
-    private ArrayList<Course> courses;
-    
-    public DataWriter(ArrayList<User> users, ArrayList<Course> courses) {
-        this.users = users;
-        this.courses = courses;
-    }
-
-    // Simulates saving users to a data source
-    public void saveUsers() {
-        // In a real application, insert database or file writing logic here
-        for (User user : users) {
-            System.out.println("Saving user: " + user.toString());
-        }
-    }
-
-    // Simulates saving courses to a data source
-    public void saveCourses() {
-        // In a real application, insert database or file writing logic here
-        for (Course course : courses) {
-            System.out.println("Saving course: " + course.toString());
-        }
+        userDetails.put(USER_ID, user.getUserID());
+        userDetails.put(FIRST_NAME, user.getFirstName());
+        userDetails.put(LAST_NAME, user.getLastName());
+        userDetails.put(EMAIL, user.getEmail());
+        userDetails.put(PASSWORD, user.getPassword());
+        userDetails.put(PERMISSION, user.isPermission());
+        return userDetails;
     }
 }
+

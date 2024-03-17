@@ -1,21 +1,38 @@
 import java.util.ArrayList;
 
 public class CourseList {
-    private static CourseList instance;
     private ArrayList<Course> courses;
 
-    private CourseList() {
-        courses = DataLoader.getCourses();
+    public CourseList() {
+        this.courses = new ArrayList<>();
     }
 
-    public static CourseList getInstance() {
-        if (instance == null) {
-            instance = new CourseList();
+    public boolean addCourse(Course course) {
+        if (course != null && !courses.contains(course)) {
+            courses.add(course);
+            return true;
         }
-        return instance;
+        return false;
     }
 
-    public ArrayList<Course> getCourses(String keyword) {
-        // Implementation here
+    public boolean removeCourse(Course course) {
+        return courses.remove(course);
+    }
+
+    public Course findCourseByID(String courseID) {
+        for (Course course : courses) {
+            if (course.getCourseID().equals(courseID)) {
+                return course;
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(ArrayList<Course> courses) {
+        this.courses = courses;
     }
 }

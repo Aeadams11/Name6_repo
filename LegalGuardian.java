@@ -4,27 +4,37 @@ public class LegalGuardian extends Student {
     private String relationshipToStudent;
     private boolean permission;
 
-    public String getFirstName() {
-        // Implementation
+    public LegalGuardian(String userID, String firstName, String lastName, String email, String password,
+                         String relationshipToStudent, boolean permission) {
+        super(userID, firstName, lastName, email, password, false); // Assuming LegalGuardian is not a student
+        this.relationshipToStudent = relationshipToStudent;
+        this.permission = permission;
     }
 
-    public String getLastName() {
-        // Implementation
-    }
-
+    // Getters and setters
     public String getRelationshipToStudent() {
-        // Implementation
+        return relationshipToStudent;
     }
 
-    public boolean getHasPermission() {
-        // Implementation
+    public void setRelationshipToStudent(String relationshipToStudent) {
+        this.relationshipToStudent = relationshipToStudent;
     }
 
-    public void setRelationshipToStudent(String relationship) {
-        // Implementation
+    public boolean hasPermission() {
+        return permission;
     }
 
-    public void setHasPermission(boolean permission) {
-        // Implementation
+    public void setPermission(boolean permission) {
+        this.permission = permission;
+    }
+
+    @Override
+    public String toString() {
+        return "LegalGuardian{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", relationshipToStudent='" + relationshipToStudent + '\'' +
+                ", permission=" + permission +
+                '}';
     }
 }

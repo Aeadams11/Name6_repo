@@ -1,56 +1,44 @@
-import java.util.Scanner; 
+import java.util.Scanner;
 
 public class UniversitySystemUI {
     public static final String WELCOME = "Welcome to the Program!";
-    //alter below for our menu options
-    private String[] mainMenuOptionsStudent = {"fjfdjfd","Checkout Item","Rate an Item","Pay a Fine","Logout"};
-    private String[] mainMenuOptionsAdmin = {"fjfdjfd","Checkout Item","Rate an Item","Pay a Fine","Logout"};
-
-    private Scanner keyboard; 
+    private Scanner keyboard;
     private UniversitySystemFACADE facade;
 
-    UniversitySystemUI(){
+    public UniversitySystemUI() {
         keyboard = new Scanner(System.in);
         facade = new UniversitySystemFACADE();
     }
 
     public void run() {
         System.out.println(WELCOME);
-        //loop through menu options
-        while(true) {
+        while (true) {
             login();
-            displayMenu();
-
-
-            switch(userCommand){
-                case(0):
-                    break;
-                case(1):
-
-            }
+            // Add your menu options and logic here
         }
-        //if they do not have an exisiting account, tell them to reach out to their advisor
     }
 
     public void displayMenu() {
         System.out.println("Please choose from the options below");
-
+        // Display menu options
     }
+
     public void login() {
-        //should login return user type? that way, menu options 
-        // can be determined by user type, as given through login 
-        System.out.println("Enter username"); 
+        System.out.println("Enter username:");
         String userName = keyboard.nextLine();
-        // check username
-        System.out.println("Enter your password");
+        System.out.println("Enter your password:");
         String passWord = keyboard.nextLine();
-        //check password
+        User user = facade.login(userName, passWord);
+        if (user != null) {
+            System.out.println("Login successful. Welcome, " + user.getFirstName() + "!");
+            // Add logic for menu options after successful login
+        } else {
+            System.out.println("Invalid username or password. Please try again.");
+        }
     }
-
 
     public static void main(String[] args) {
         UniversitySystemUI uniInterface = new UniversitySystemUI();
         uniInterface.run();
     }
-    
 }

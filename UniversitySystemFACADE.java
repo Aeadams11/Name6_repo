@@ -1,15 +1,16 @@
+import java.util.Map;
+
 public class UniversitySystemFACADE {
     private UserList userList;
-    private CourseList courseList; 
+    private CourseList courseList;
 
     public UniversitySystemFACADE() {
-        userList.getInstance();
-        courseList.getInstance(); 
-      //  this.userList = userList;
+        userList = UserList.getInstance();
+        courseList = CourseList.getInstance();
     }
 
     public User login(String USCID, String password) {
-        for (User user : userList.getUsers()) { // Assuming getUsers() returns a collection of User objects
+        for (User user : userList.getAllUsers()) {
             if (user.getUserID().equals(USCID) && user.getPassword().equals(password)) {
                 return user; // User found and password matches
             }
@@ -17,3 +18,4 @@ public class UniversitySystemFACADE {
         return null; // User not found or password does not match
     }
 }
+

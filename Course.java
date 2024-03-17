@@ -3,19 +3,28 @@ import java.util.ArrayList;
 public class Course {
     private String courseID;
     private String courseName;
-    // hashmap?
-    private ArrayList<Course> preReqs;
-    private char minGrade;
-    private String department;
+    private String description;
+    private String instructor;
+    private String meetingTime;
+    private ArrayList<String> prerequisites;
+    private ArrayList<String> corequisites;
+    private int creditHours;
+    private ProgressTracker.Semester semester; // Corrected type
 
-    public Course(String courseID, String courseName, char minimumGrade, String department) {
+    public Course(String courseID, String courseName, String description, String instructor,
+                  String meetingTime, int creditHours, ProgressTracker.Semester semester) {
         this.courseID = courseID;
         this.courseName = courseName;
-        this.minGrade = minimumGrade;
-        this.department = department;
-
+        this.description = description;
+        this.instructor = instructor;
+        this.meetingTime = meetingTime;
+        this.creditHours = creditHours;
+        this.semester = semester; // Initialize semester
+        this.prerequisites = new ArrayList<>();
+        this.corequisites = new ArrayList<>();
     }
 
+    // Getters and setters
     public String getCourseID() {
         return courseID;
     }
@@ -32,28 +41,59 @@ public class Course {
         this.courseName = courseName;
     }
 
-    public ArrayList<Course> getPreReqs() {
-        return preReqs;
+    public String getDescription() {
+        return description;
     }
 
-    public void setPreReqs(ArrayList<Course> preReqs) {
-        this.preReqs = preReqs;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public char getMinGrade() {
-        return minGrade;
+    public String getInstructor() {
+        return instructor;
     }
 
-    public void setMinGrade(char minGrade) {
-        this.minGrade = minGrade;
+    public void setInstructor(String instructor) {
+        this.instructor = instructor;
     }
 
-    public String getDepartment() {
-        return department;
+    public String getMeetingTime() {
+        return meetingTime;
     }
 
-    public void setDepartment(String department) {
-        this.department = department;
+    public void setMeetingTime(String meetingTime) {
+        this.meetingTime = meetingTime;
     }
 
+    public ArrayList<String> getPrerequisites() {
+        return prerequisites;
+    }
+
+    public void setPrerequisites(ArrayList<String> prerequisites) {
+        this.prerequisites = prerequisites;
+    }
+
+    public ArrayList<String> getCorequisites() {
+        return corequisites;
+    }
+
+    public void setCorequisites(ArrayList<String> corequisites) {
+        this.corequisites = corequisites;
+    }
+
+    public int getCreditHours() {
+        return creditHours;
+    }
+
+    public void setCreditHours(int creditHours) {
+        this.creditHours = creditHours;
+    }
+
+    public ProgressTracker.Semester getSemester() {
+        return semester;
+    }
+
+    public void setSemester(ProgressTracker.Semester semester) {
+        this.semester = semester;
+    }
 }
