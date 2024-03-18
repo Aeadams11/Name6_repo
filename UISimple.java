@@ -5,7 +5,7 @@ public class UISimple {
     public static final String WELCOME_MESSAGE = "***** Welcome to the Scheduler3000 *****";
     public static final String CHOOSE = "Please choose from the following options";
     public static String[] loginOptions = {"Create an account", "Log in to a new account"};
-    public static String[] studentOptions = {"Generate personal 8 semester plan", "View completed courses", "View unfulfilled requirements", "Choose application area"};
+    public static String[] studentOptions = {"Generate personal 8 semester plan", "View completed courses", "View unfulfilled requirements", "Browse application areas"};
     public static String[] adminOptions = {"View advisee list", "Search for a student"};
     public static String[] studentAdvisorOptions = {"View completed courses", "View unfulfilled requirements", "View warnings", "Leave a note", "View/Approve Transfer Credits", "Add to advisee list", "Remove from advisee list"}; 
     public static String[] guardianOptions = {"guardian options"}; 
@@ -30,7 +30,9 @@ public class UISimple {
         displayOptions(studentOptions); 
         int choice = keyboard.nextInt();
         keyboard.nextLine();
-        
+        Student.displayCoursesTaken();
+        displayOptions(studentOptions);
+
     }
     public void scenario2(){
         System.out.println(WELCOME_MESSAGE);
