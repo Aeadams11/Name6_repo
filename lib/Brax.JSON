@@ -19,6 +19,7 @@
             "CHEM111",
             "CSCE215"
         ],
-        "type": "STUDENT"
+        "type": "STUDENT",
+        "grade": []
     }
 ]

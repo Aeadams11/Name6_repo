@@ -1,3 +1,5 @@
+import java.io.File;
+
 public class Report {
     private int reportID;
     private String title;

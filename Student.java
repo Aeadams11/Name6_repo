@@ -20,7 +20,7 @@ public class Student extends User {
     public static void displayCoursesTaken() {
         String display = "";
         for (Grade grade : coursesTaken) {
-            String course = grade.getCourse().getCourseName();
+            String course = grade.getCourse().getName();
             char letterGrade = grade.getGrade();
             // later: check if passed
             display += "Course: " + course + "Grade: " + letterGrade + " ** PASSED **";
