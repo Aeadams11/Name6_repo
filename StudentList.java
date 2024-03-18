@@ -4,8 +4,8 @@ public class StudentList {
     private static StudentList instance;
     private ArrayList<User> users;
 
-    private void UserList() {
-        users = .getUsers();
+    private void StudentList() {
+        users = DataLoader.getStudents();
     }
 
     public static StudentList getInstance() {

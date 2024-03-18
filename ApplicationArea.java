@@ -18,8 +18,7 @@ public class ApplicationArea {
         SCIENTIFIC_COMPUTING,
         AEROSPACE_ENG,
         ROBOTICS,
-        WEB_DEVELOPMENT,
-        OTHER
+        WEB_DEVELOPMENT
     }
 
     public ArrayList<Course> listCourses() {
@@ -43,5 +42,20 @@ public class ApplicationArea {
     public boolean removeCourse(String courseID) {
         // Implementation
         return true; 
+    }
+    public static void printApps() {
+       System.out.println("BIOINFORMATICS\n"+
+        "CLOUD_DEVELOPMENT\n"+
+        "GAME\n"+
+        "DATA_SCIENCE\n"+
+        "CYBER_SECURITY\n"+
+        "GIS_DEVELOPMENT\n"+
+        "LINGUISTICS\n"+
+        "NEW_MEDIA\n"+
+        "RISK_INSURANCE\n"+
+        "SCIENTIFIC_COMPUTING\n"+
+        "AEROSPACE_ENG\n"+
+        "ROBOTICS\n"+
+        "WEB_DEVELOPMENT");
     }
 }

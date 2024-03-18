@@ -4,11 +4,11 @@ public class UniversitySystemUI {
     Scanner keyboard = new Scanner(System.in); 
     public static final String WELCOME_MESSAGE = "***** Welcome to the Scheduler3000 *****";
     public static final String CHOOSE = "Please choose from the following options";
-    public static String[] loginOptions = {"Create an account", "Log in to a new account"};
-    public static String[] studentOptions = {"Generate personal 8 semester plan", "View completed courses", "View unfulfilled requirements", "Browse application areas"};
-    public static String[] adminOptions = {"View advisee list", "Search for a student"};
+    public static String[] loginOptions = {"Create an account", "Log in to an existing account"};
+    public static String[] studentOptions = {"Generate personal 8 semester plan", "View completed courses", "View unfulfilled requirements", "Browse application areas", "Logout"};
+    public static String[] adminOptions = {"View advisee list", "Search for a student", "Logout"};
     public static String[] studentAdvisorOptions = {"View completed courses", "View unfulfilled requirements", "View warnings", "Leave a note", "View/Approve Transfer Credits", "Add to advisee list", "Remove from advisee list", "Return to main menu"}; 
-    public static String[] guardianOptions = {"guardian options"}; 
+    public static String[] guardianOptions = {"guardian options", "Logout"}; 
     public static String[] accountTypes = {"Student Account", "Administrative Account", "Legal Guardian Account"};
 
     UniversitySystemUI(){
@@ -23,21 +23,40 @@ public class UniversitySystemUI {
     public void scenario1(){
         //in sprint 2 we will do switch cases after displaying, but for now we are hardcoding these scenarios
         System.out.println(WELCOME_MESSAGE);
+        //login
         displayOptions(loginOptions);
         int loginChoice = keyboard.nextInt(); 
         keyboard.nextLine();
         login(); 
+        //courses taken
         displayOptions(studentOptions); 
         int choice = keyboard.nextInt();
         keyboard.nextLine();
         Student.displayCoursesTaken();
-        displayOptions(studentOptions);
         //courses not taken
+        displayOptions(studentOptions);
+        int a = keyboard.nextInt();
+        keyboard.nextLine();
+        
         //browse application areas
+        displayOptions(studentOptions);
+        int m = keyboard.nextInt();
+        keyboard.nextLine();
+        ApplicationArea.printApps();
         //select digital design option, pick classes
+        
         //generate and print to text a file for 8 semester plan
+        displayOptions(studentOptions);
+        int c = keyboard.nextInt();
+        keyboard.nextLine();
         //logout
         //logback in
+        System.out.println(WELCOME_MESSAGE);
+        //login
+        displayOptions(loginOptions);
+        int b = keyboard.nextInt(); 
+        keyboard.nextLine();
+        login(); 
         //show changes made
         
     }
@@ -73,6 +92,8 @@ public class UniversitySystemUI {
         int z = keyboard.nextInt();
         keyboard.nextLine();
         Admin.addNote(student.getStudentID());
+        //logout
+        //log back in, show changes
     }
 
     public void displayOptions(String[] options){

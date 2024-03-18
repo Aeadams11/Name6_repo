@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class Admin extends User {
     
-    Scanner keyboard = new Scanner(System.in); 
+    static Scanner keyboard = new Scanner(System.in); 
 
     private String role;
     private String department;
@@ -52,8 +52,9 @@ public class Admin extends User {
     public static void addAdvisee(String studentID) {
         advisees.add(searchUser(studentID));
     }
-    public void addNote(String studentID) {
+    public static void addNote(String studentID) {
+        Student student = StudentList.getUser(studentID);
         String note = keyboard.nextLine();
-        Student.advisorNotes += note; 
+        student.advisorNotes += note; 
     }
 }
