@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Student extends User {
-    
+
     public Student(String userID, String firstName, String lastName, String email, String password,
             boolean permission) {
         super(userID, firstName, lastName, email, password, permission);
@@ -15,18 +15,19 @@ public class Student extends User {
     private boolean Scholarship;
     public static ArrayList<Grade> coursesTaken;
     private String major;
-    public String advisorNotes; 
+    public String advisorNotes;
 
     public static void displayCoursesTaken() {
-        String display = ""; 
-        for(Grade grade : coursesTaken) {
+        String display = "";
+        for (Grade grade : coursesTaken) {
             String course = grade.getCourse().getCourseName();
             char letterGrade = grade.getGrade();
             // later: check if passed
-            display += "Course: " + course + "Grade: " + letterGrade + " ** PASSED **"; 
+            display += "Course: " + course + "Grade: " + letterGrade + " ** PASSED **";
         }
-        System.out.println(display); 
+        System.out.println(display);
     }
+
     public String getName() {
         return firstname + lastname;
     }
@@ -59,7 +60,7 @@ public class Student extends User {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
     public boolean hasScholarship() {
         return Scholarship;
     }
@@ -75,7 +76,6 @@ public class Student extends User {
     public ArrayList<Grade> getCoursesTaken() {
         return coursesTaken;
     }
-    
 
     public String getmajor() {
         return major;
@@ -86,7 +86,7 @@ public class Student extends User {
     }
 
     public User.UserType getUserType() {
-        return UserType.STUDENT; 
+        return UserType.STUDENT;
     }
-    
+
 }

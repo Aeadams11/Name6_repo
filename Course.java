@@ -1,82 +1,100 @@
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class Course {
-    private String courseID;
+    private String uuid;
     private String subject;
-    private String courseNumber;
-    private String courseName;
+    private String number;
+    private String name;
     private String description;
-    private Map<String, List<String>> prerequisites;
-    private Map<String, List<String>> corequisites;
-    private int creditHours;
-    private ArrayList<String> semesters;
+    private double creditHours;
+    private List<String> semesters;
+    private List<Map<String, Object>> prerequisites;
+    private List<Map<String, Object>> corequisites;
 
-    public Course(String courseID, String courseName, String description, String instructor,
-            String meetingTime, int creditHours, ArrayList<String> semesters) {
-        this.courseID = courseID;
-        this.courseName = courseName;
+    public Course(String uuid, String subject, String number, String name, String description,
+            double creditHours, List<String> semesters, List<Map<String, Object>> prerequisites,
+            List<Map<String, Object>> corequisites) {
+        this.uuid = uuid;
+        this.subject = subject;
+        this.number = number;
+        this.name = name;
         this.description = description;
         this.creditHours = creditHours;
-        this.prerequisites = new HashMap<>();
-        this.corequisites = new HashMap<>();
         this.semesters = semesters;
+        this.prerequisites = prerequisites;
+        this.corequisites = corequisites;
     }
 
-    public String getCourseID() {
-        return courseID;
+    public String getUuid() {
+        return uuid;
     }
 
-    public void setCourseID(String courseID) {
-        this.courseID = courseID;
+    public String getSubject() {
+        return subject;
     }
 
-    public String getCourseName() {
-        return courseName;
+    public String getNumber() {
+        return number;
     }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
+    public String getName() {
+        return name;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-    public void addPrerequisite(String prereqCourseID) {
-        this.prerequisites.computeIfAbsent(this.courseID, k -> new ArrayList<>()).add(prereqCourseID);
-    }
-
-    public void addCorequisite(String coreqCourseID) {
-        this.corequisites.computeIfAbsent(this.courseID, k -> new ArrayList<>()).add(coreqCourseID);
-    }
-
-    public Map<String, List<String>> getPreReqs() {
-        return prerequisites;
-    }
-
-    public Map<String, List<String>> getCoreReqs() {
-        return corequisites;
-    }
-
-    public int getCreditHours() {
+    public double getCreditHours() {
         return creditHours;
     }
 
-    public void setCreditHours(int creditHours) {
-        this.creditHours = creditHours;
-    }
-
-    public ArrayList<String> getSemesters() {
+    public List<String> getSemesters() {
         return semesters;
     }
 
-    public void setSemester(ArrayList<String> semesters) {
+    public List<Map<String, Object>> getPrerequisites() {
+        return prerequisites;
+    }
+
+    public List<Map<String, Object>> getCorequisites() {
+        return corequisites;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setCreditHours(double creditHours) {
+        this.creditHours = creditHours;
+    }
+
+    public void setSemesters(List<String> semesters) {
         this.semesters = semesters;
+    }
+
+    public void setPrerequisites(List<Map<String, Object>> prerequisites) {
+        this.prerequisites = prerequisites;
+    }
+
+    public void setCorequisites(List<Map<String, Object>> corequisites) {
+        this.corequisites = corequisites;
     }
 }

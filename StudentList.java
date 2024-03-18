@@ -4,8 +4,8 @@ public class StudentList {
     private static StudentList instance;
     private ArrayList<User> users;
 
-    private StudentList() {
-        users = DataLoader.getStudents();
+    private void UserList() {
+        users = .getUsers();
     }
 
     public static StudentList getInstance() {
@@ -30,15 +30,18 @@ public class StudentList {
         return anna;
     }
 
-    public static boolean createUser(String userID, String firstName, String lastName, String email, String password, User.UserType type) {
-        //create user
-        //add to user list 
-        //return true if account is successfully created
-        return true;   
+    public static boolean createUser(String userID, String firstName, String lastName, String email, String password,
+            User.UserType type) {
+        // create user
+        // add to user list
+        // return true if account is successfully created
+        return true;
     }
+
     public ArrayList<User> getUsers() {
-        return users; 
+        return users;
     }
+
     public void removeUser(String userid) {
 
     }

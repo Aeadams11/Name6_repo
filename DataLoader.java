@@ -1,5 +1,9 @@
-import java.util.ArrayList;
 import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -60,49 +64,60 @@ public class DataLoader {
                 true);
     }
 
-}
+    public static ArrayList<Course> getCourses() {
+        ArrayList<Course> courses = new ArrayList<>();
+        JSONParser parser = new JSONParser();
 
-public static ArrayList<Course> getCourses() {
-    ArrayList<Course> courses = new ArrayList<>();
-    JSONParser parser = new JSONParser();
-
-    try {
-        FileReader reader = new FileReader("courses.json");
-        JSONArray coursesJSON = (JSONArray) parser.parse(reader);
-        for (Object o : coursesJSON) {
-            JSONObject courseJSON = (JSONObject) o;
-            String courseID = (String) courseJSON.get("courseID");
-            String courseName = (String) courseJSON.get("courseName");
-            String description = (String) courseJSON.get("description");
-            String instructor = (String) courseJSON.get("instructor");
-            String meetingTime = (String) courseJSON.get("meetingTime");
-            int creditHours = ((Long) courseJSON.get("creditHours")).intValue();
-            String semester = "";
-
-            Course course = new Course(courseID, courseName, description, instructor, meetingTime, creditHours,
-                    semester);
-
-            JSONArray prereqsJSON = (JSONArray) courseJSON.get("prerequisites");
-            JSONArray coreqsJSON = (JSONArray) courseJSON.get("corequisites");
-
-            if (prereqsJSON != null) {
-                for (Object prereqObj : prereqsJSON) {
-                    String prereqID = (String) prereqObj;
-                    course.addPrerequisite(prereqID);
+        try {
+            FileReader reader = new FileReader("courses.json");
+            JSONArray coursesJSON = (JSONArray) parser.parse(reader);
+            for (Object o : coursesJSON) {
+                JSONObject courseJSON = (JSONObject) o;
+                String uuid = (String) courseJSON.get("uuid");
+                String subject = (String) courseJSON.get("subject");
+                String number = (String) courseJSON.get("number");
+                String name = (String) courseJSON.get("name");
+                String description = (String) courseJSON.get("description");
+                double creditHours = Double.parseDouble(courseJSON.get("credit_hours").toString());
+                JSONArray semestersJSON = (JSONArray) courseJSON.get("semesters");
+                List<String> semesters = new ArrayList<String>();
+                for (Object semester : semestersJSON) {
+                    semesters.add((String) semester);
                 }
-            }
 
-            if (coreqsJSON != null) {
-                for (Object coreqObj : coreqsJSON) {
-                    String coreqID = (String) coreqObj;
-                    course.addCorequisite(coreqID);
-                }
-            }
+                List<Map<String, Object>> prerequisites = new ArrayList<Map<String, Object>>();
+                parseRequirements((JSONArray) courseJSON.get("prerequisites"), prerequisites);
 
-            courses.add(course);
+                List<Map<String, Object>> corequisites = new ArrayList<Map<String, Object>>();
+                parseRequirements((JSONArray) courseJSON.get("corequisites"), corequisites);
+
+                Course course = new Course(uuid, subject, number, name, description, creditHours, semesters,
+                        prerequisites, corequisites);
+                courses.add(course);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-    } catch (Exception e) {
-        e.printStackTrace();
+        return courses;
     }
-    return courses;
+
+    private static void parseRequirements(JSONArray requirementsJSON, List<Map<String, Object>> requirements) {
+        if (requirementsJSON != null) {
+            for (Object requirementObj : requirementsJSON) {
+                JSONObject requirementJSON = (JSONObject) requirementObj;
+                Map<String, Object> requirement = new HashMap<>();
+                requirement.put("choices", requirementJSON.get("choices"));
+                requirement.put("grade", requirementJSON.get("grade"));
+
+                List<String> options = new ArrayList<>();
+                JSONArray optionsJSON = (JSONArray) requirementJSON.get("options");
+                for (Object option : optionsJSON) {
+                    options.add((String) option);
+                }
+                requirement.put("options", options);
+
+                requirements.add(requirement);
+            }
+        }
+    }
 }
