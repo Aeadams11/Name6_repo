@@ -14,7 +14,7 @@ public class Course {
     private int creditHours;
     private char minGrade;
     private String department;
-    String semester;
+    private String semester;
 
     public Course(String courseID, String courseName, String description, String instructor,
             String meetingTime, int creditHours, String semester) {

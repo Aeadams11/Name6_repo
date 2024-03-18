@@ -1,0 +1,235 @@
+{
+    "major": "Computer Science",
+    "degree": "Bachelor of Science in Computer Science (B.S.C.S.)",
+    "totalCreditHoursRequired": 125,
+    "coreCourses": [
+        {
+            "courseID": "ENGL 101",
+            "courseName": "Critical Reading and Composition",
+            "creditHours": 3
+        },
+        {
+            "courseID": "MATH 141",
+            "courseName": "Calculus I",
+            "creditHours": 4
+        },
+        {
+            "courseID": "CSCE 145",
+            "courseName": "Algorithmic Design I",
+            "creditHours": 4
+        },
+        {
+            "courseID": "CSCE 190",
+            "courseName": "Computing in the Modern World",
+            "creditHours": 1
+        },
+        {
+            "courseID": "ENGL 102",
+            "courseName": "Rhetoric and Composition",
+            "creditHours": 3
+        },
+        {
+            "courseID": "MATH 142",
+            "courseName": "Calculus II",
+            "creditHours": 4
+        },
+        {
+            "courseID": "CHEM 111",
+            "courseName": "General Chemistry I",
+            "creditHours": 3,
+            "alternative": "PHYS 211 Essentials of Physics I"
+        },
+        {
+            "courseID": "CSCE 146",
+            "courseName": "Algorithmic Design II",
+            "creditHours": 4
+        },
+        {
+            "courseID": "CSCE 215",
+            "courseName": "UNIX/Linux Fundamentals",
+            "creditHours": 1
+        },
+        {
+            "courseID": "CSCE 211",
+            "courseName": "Digital Logic Design",
+            "creditHours": 3
+        },
+        {
+            "courseID": "CSCE 240",
+            "courseName": "Advanced Programming Techniques",
+            "creditHours": 3
+        },
+        {
+            "courseID": "MATH 374",
+            "courseName": "Discrete Structures",
+            "creditHours": 3
+        },
+        {
+            "courseID": "CSCE 212",
+            "courseName": "Introduction to Computer Architecture",
+            "creditHours": 3
+        },
+        {
+            "courseID": "CSCE 247",
+            "courseName": "Software Engineering",
+            "creditHours": 3
+        },
+        {
+            "courseID": "CSCE 311",
+            "courseName": "Operating Systems",
+            "creditHours": 3
+        },
+        {
+            "courseID": "CSCE 330",
+            "courseName": "Programming Language Structures",
+            "creditHours": 3
+        },
+        {
+            "courseID": "CSCE 350",
+            "courseName": "Data Structures & Algorithms",
+            "creditHours": 3
+        },
+        {
+            "courseID": "CSCE 390",
+            "courseName": "Professional Issues in Computer Science Engineering",
+            "creditHours": 1
+        },
+        {
+            "courseID": "CSCE 416",
+            "courseName": "Introduction to Computer Networks",
+            "creditHours": 3
+        },
+        {
+            "courseID": "CSCE 490",
+            "courseName": "Capstone Computing Project I",
+            "creditHours": 3
+        },
+        {
+            "courseID": "CSCE 492",
+            "courseName": "Capstone Computing Project II",
+            "creditHours": 3
+        }
+    ],
+    "choiceCourses": [
+        {
+            "description": "General Chemistry I or Essentials of Physics I",
+            "options": [
+                {
+                    "courseID": "CHEM 111",
+                    "courseName": "General Chemistry I",
+                    "creditHours": 3,
+                    "lab": {
+                        "courseID": "CHEM 111L",
+                        "courseName": "General Chemistry I Lab",
+                        "creditHours": 1
+                    }
+                },
+                {
+                    "courseID": "PHYS 211",
+                    "courseName": "Essentials of Physics I",
+                    "creditHours": 3,
+                    "lab": {
+                        "courseID": "PHYS 211L",
+                        "courseName": "Essentials of Physics I Lab",
+                        "creditHours": 1
+                    }
+                }
+            ]
+        },
+        {
+            "description": "General Chemistry II or Essentials of Physics II",
+            "options": [
+                {
+                    "courseID": "CHEM 112",
+                    "courseName": "General Chemistry II",
+                    "creditHours": 3,
+                    "lab": {
+                        "courseID": "CHEM 112L",
+                        "courseName": "General Chemistry II Lab",
+                        "creditHours": 1
+                    }
+                },
+                {
+                    "courseID": "PHYS 212",
+                    "courseName": "Essentials of Physics II",
+                    "creditHours": 3,
+                    "lab": {
+                        "courseID": "PHYS 212L",
+                        "courseName": "Essentials of Physics II Lab",
+                        "creditHours": 1
+                    }
+                }
+            ]
+        },
+        {
+            "description": "Public Communication",
+            "options": [
+                {
+                    "courseID": "SPCH 140",
+                    "courseName": "Public Communication",
+                    "creditHours": 3
+                },
+                {
+                    "courseID": "SPCH 145",
+                    "courseName": "Online Public Communication",
+                    "creditHours": 3
+                },
+                {
+                    "courseID": "SPCH 230",
+                    "courseName": "Business and Professional Speaking",
+                    "creditHours": 3
+                }
+            ]
+        },
+        {
+            "description": "Technical Writing or Business Writing",
+            "options": [
+                {
+                    "courseID": "ENGL 462",
+                    "courseName": "Technical Writing",
+                    "creditHours": 3
+                },
+                {
+                    "courseID": "ENGL 463",
+                    "courseName": "Business Writing",
+                    "creditHours": 3
+                }
+            ]
+        }
+    ],
+    "electiveGroups": [
+        {
+            "groupDescription": "Laboratory Science Elective",
+            "creditHoursRequired": 4,
+            "courses": [
+                {
+                    "courseID": "ANTH 161",
+                    "courseName": "Introduction to Biological Anthropology Laboratory",
+                    "creditHours": 1
+                },
+                {
+                    "courseID": "ASTR 101",
+                    "courseName": "Introduction to Astronomy",
+                    "creditHours": 3
+                }
+            ]
+        },
+        {
+            "groupDescription": "CSCE Major Electives",
+            "creditHoursRequired": 9,
+            "courses": [
+                {
+                    "courseID": "CSCE 317",
+                    "courseName": "Introduction to Cybersecurity",
+                    "creditHours": 3
+                },
+                {
+                    "courseID": "CSCE 500",
+                    "courseName": "Advanced Topics in Computer Science",
+                    "creditHours": 3,
+                    "notes": "Any CSCE course 500 or higher."
+                }
+            ]
+        }
+    ]
+}
