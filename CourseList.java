@@ -1,38 +1,38 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class CourseList {
-    private ArrayList<Course> courses;
+    private static CourseList instance;
+    private Map<String, Course> courses;
 
-    public CourseList() {
-        this.courses = new ArrayList<>();
+    private CourseList() {
+        this.courses = new HashMap<>();
     }
 
-    public boolean addCourse(Course course) {
-        if (course != null && !courses.contains(course)) {
-            courses.add(course);
-            return true;
+    public static CourseList getInstance() {
+        if (instance == null) {
+            instance = new CourseList();
         }
-        return false;
+        return instance;
     }
 
-    public boolean removeCourse(Course course) {
-        return courses.remove(course);
-    }
-
-    public Course findCourseByID(String courseID) {
-        for (Course course : courses) {
-            if (course.getCourseID().equals(courseID)) {
-                return course;
-            }
+    public void addCourse(Course course) {
+        if (course != null && !courses.containsKey(course.getCourseID())) {
+            courses.put(course.getCourseID(), course);
         }
-        return null;
     }
 
-    public ArrayList<Course> getCourses() {
-        return courses;
+    public Course getCourseByID(String courseID) {
+        return courses.get(courseID);
     }
 
-    public void setCourses(ArrayList<Course> courses) {
-        this.courses = courses;
+    public List<Course> getAllCourses() {
+        return new ArrayList<>(courses.values());
+    }
+
+    public boolean removeCourse(String courseID) {
+        return courses.remove(courseID) != null;
     }
 }

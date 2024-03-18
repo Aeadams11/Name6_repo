@@ -1,4 +1,7 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Course {
     private String courseID;
@@ -6,18 +9,24 @@ public class Course {
     private String description;
     private String instructor;
     private String meetingTime;
-    private HashMap<String, Integer> prerequisites; 
+    private Map<String, List<String>> prerequisites;
+    private Map<String, List<String>> corequisites;
     private int creditHours;
+    private char minGrade;
+    private String department;
+    private String semester;
 
     public Course(String courseID, String courseName, String description, String instructor,
-                  String meetingTime, int creditHours) {
+            String meetingTime, int creditHours, String semester) {
         this.courseID = courseID;
         this.courseName = courseName;
         this.description = description;
         this.instructor = instructor;
         this.meetingTime = meetingTime;
         this.creditHours = creditHours;
-        this.prerequisites = new HashMap<>(); 
+        this.prerequisites = new HashMap<>();
+        this.corequisites = new HashMap<>();
+        this.semester = semester;
     }
 
     public String getCourseID() {
@@ -60,12 +69,20 @@ public class Course {
         this.meetingTime = meetingTime;
     }
 
-    public HashMap<String, Integer> getPrerequisites() {
+    public void addPrerequisite(String prereqCourseID) {
+        this.prerequisites.computeIfAbsent(this.courseID, k -> new ArrayList<>()).add(prereqCourseID);
+    }
+
+    public void addCorequisite(String coreqCourseID) {
+        this.corequisites.computeIfAbsent(this.courseID, k -> new ArrayList<>()).add(coreqCourseID);
+    }
+
+    public Map<String, List<String>> getPreReqs() {
         return prerequisites;
     }
 
-    public void setPrerequisites(HashMap<String, Integer> prerequisites) {
-        this.prerequisites = prerequisites;
+    public Map<String, List<String>> getCoreReqs() {
+        return corequisites;
     }
 
     public int getCreditHours() {
@@ -74,5 +91,13 @@ public class Course {
 
     public void setCreditHours(int creditHours) {
         this.creditHours = creditHours;
+    }
+
+    public String getSemester() {
+        return semester;
+    }
+
+    public void setSemester(String semester) {
+        this.semester = semester;
     }
 }

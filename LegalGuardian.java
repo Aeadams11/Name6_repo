@@ -11,7 +11,7 @@ public class LegalGuardian extends Student {
         this.permission = permission;
     }
 
-    // Getters and setters
+    
     public String getRelationshipToStudent() {
         return relationshipToStudent;
     }

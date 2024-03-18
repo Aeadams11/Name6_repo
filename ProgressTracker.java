@@ -1,61 +1,38 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ProgressTracker {
     private String studentID;
     private Major majorProgram;
-    private ArrayList<Course> completedCourses;
-    private ArrayList<Course> remainingCourses;
+    private List<Course> completedCourses;
+    private List<Course> remainingCourses;
     private double currentGPA;
-    private Map<Semester, Double> semesterGPA;
+    private Map<String, Double> semesterGPA; // Changed to use String key
     private Map<Course, Grade> grades;
 
-    public enum Semester {
-        SPRING,
-        SUMMER,
-        FALL,
-        WINTER
-    }
-
-    public enum Grade {
-        A(4.0),
-        B(3.0),
-        C(2.0),
-        D(1.0),
-        F(0.0);
-
-        private final double gradeValue;
-
-        Grade(double gradeValue) {
-            this.gradeValue = gradeValue;
-        }
-
-        public double getGradeValue() {
-            return gradeValue;
-        }
-    }
-
-    public ProgressTracker() {
-        this.semesterGPA = new HashMap<>();
-        this.grades = new HashMap<>();
+    public ProgressTracker(String studentID, Major majorProgram) {
+        this.studentID = studentID;
+        this.majorProgram = majorProgram;
         this.completedCourses = new ArrayList<>();
         this.remainingCourses = new ArrayList<>();
+        this.semesterGPA = new HashMap<>();
+        this.grades = new HashMap<>();
     }
 
-    public boolean addCompletedCourse(Course course, Grade grade) {
-        if (course != null && !completedCourses.contains(course)) {
-            completedCourses.add(course);
-            grades.put(course, grade);
-            return true;
-        }
-        return false;
+    public void addCompletedCourse(Course course, Grade grade) {
+        completedCourses.add(course);
+        grades.put(course, grade);
+        calculateCurrentGPA();
+        calculateRemainingCourses();
     }
 
     public void calculateRemainingCourses() {
-        for (Course requiredCourse : majorProgram.getRequiredCourses()) {
-            if (!completedCourses.contains(requiredCourse)) {
-                remainingCourses.add(requiredCourse);
+        remainingCourses.clear();
+        for (Course course : majorProgram.getRequiredCourses()) {
+            if (!completedCourses.contains(course)) {
+                remainingCourses.add(course);
             }
         }
     }
@@ -66,21 +43,20 @@ public class ProgressTracker {
 
     public String getProgressReport() {
         StringBuilder report = new StringBuilder();
-        report.append("Progress Report:\n");
+        report.append("Progress Report for Student: ").append(studentID).append("\n\n");
         report.append("Completed Courses:\n");
         for (Course course : completedCourses) {
             report.append(course.getCourseName()).append("\n");
         }
-        report.append("Remaining Courses:\n");
+        report.append("\nRemaining Courses:\n");
         for (Course course : remainingCourses) {
             report.append(course.getCourseName()).append("\n");
         }
-        report.append("Current GPA: ").append(currentGPA).append("\n");
+        report.append("\nCurrent GPA: ").append(currentGPA);
         return report.toString();
     }
 
     public void calculateCurrentGPA() {
-       
         double totalGPA = 0.0;
         int totalCredits = 0;
         for (Map.Entry<Course, Grade> entry : grades.entrySet()) {
@@ -89,31 +65,21 @@ public class ProgressTracker {
             totalGPA += grade.getGradeValue() * course.getCreditHours();
             totalCredits += course.getCreditHours();
         }
-        if (totalCredits != 0) {
-            currentGPA = totalGPA / totalCredits;
-        } else {
-            currentGPA = 0.0; 
-        }
+        currentGPA = (totalCredits != 0) ? totalGPA / totalCredits : 0.0;
     }
 
-    public double getSemGPA(Semester semester) {
-        
+    public double getSemGPA(String semester) {
         double semesterTotalGPA = 0.0;
         int semesterTotalCredits = 0;
         for (Map.Entry<Course, Grade> entry : grades.entrySet()) {
             Course course = entry.getKey();
             Grade grade = entry.getValue();
-            
-            if (course.getSemester() == semester) {
+            if (semester.equals(course.getSemester())) {
                 semesterTotalGPA += grade.getGradeValue() * course.getCreditHours();
                 semesterTotalCredits += course.getCreditHours();
             }
         }
-        if (semesterTotalCredits != 0) {
-            return semesterTotalGPA / semesterTotalCredits;
-        } else {
-            return 0.0; 
-        }
+        return (semesterTotalCredits != 0) ? semesterTotalGPA / semesterTotalCredits : 0.0;
     }
 
     public boolean updateGrade(Course course, Grade newGrade) {
@@ -125,17 +91,15 @@ public class ProgressTracker {
         return false;
     }
 
-    public Map<Semester, Double> getHistoricalGPA() {
-        
-        Map<Semester, Double> historicalGPA = new HashMap<>();
-        for (Semester semester : Semester.values()) {
-            double semesterGPA = getSemGPA(semester);
-            historicalGPA.put(semester, semesterGPA);
+    public Map<String, Double> getHistoricalGPA() {
+        Map<String, Double> historicalGPA = new HashMap<>();
+        for (String semester : semesterGPA.keySet()) {
+            historicalGPA.put(semester, semesterGPA.get(semester));
         }
         return historicalGPA;
     }
 
     public void getEightSemPlan(String userID) {
-        
+        // Placeholder logic to generate an eight-semester plan for a given user ID
     }
 }

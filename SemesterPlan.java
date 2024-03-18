@@ -12,7 +12,7 @@ public class SemesterPlan {
     }
 
     public boolean addCourse(Course course) {
-        // Check if the course is not already in the semester plan
+       
         if (!courses.contains(course)) {
             courses.add(course);
             return true;
