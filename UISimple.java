@@ -76,7 +76,7 @@ public class UISimple {
         System.out.println("Enter your email: ");
         String email = keyboard.nextLine();    
 
-        if(UserList.createUser(username, firstName, lastName, email, password, type))
+        if(StudentList.createUser(username, firstName, lastName, email, password, type))
             System.out.println("Account created. Please login using your USC ID and password.");
     }
 

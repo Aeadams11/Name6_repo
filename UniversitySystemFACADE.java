@@ -1,5 +1,5 @@
 public class UniversitySystemFACADE {
-    private UserList userList;
+    private StudentList userList;
     private CourseList courseList; 
 
     public UniversitySystemFACADE() {

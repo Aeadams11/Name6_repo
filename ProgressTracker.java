@@ -11,7 +11,7 @@ public class ProgressTracker {
     private Map<Course, Grade> grades;
 
     public void viewCompletedCourses(String studentID){
-        Student student = UserList.getUser(studentID); 
+        Student student = StudentList.getUser(studentID); 
         ArrayList<Course> courses = student.getCoursesTaken();
         System.out.println("Completed courses:");
 

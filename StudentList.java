@@ -1,16 +1,16 @@
 import java.util.ArrayList;
 
-public class UserList {
-    private static UserList instance;
+public class StudentList {
+    private static StudentList instance;
     private ArrayList<User> users;
 
-    private UserList() {
-        users = DataLoader.getUsers();
+    private StudentList() {
+        users = DataLoader.getStudents();
     }
 
-    public static UserList getInstance() {
+    public static StudentList getInstance() {
         if (instance == null) {
-            instance = new UserList();
+            instance = new StudentList();
         }
         return instance;
     }
