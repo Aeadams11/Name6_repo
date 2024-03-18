@@ -10,11 +10,11 @@ import org.json.simple.parser.JSONParser;
 
 public class DataLoader {
 
-    public static ArrayList<User> getStudents() {
+    public static ArrayList<User> getStudents(String fileName) {
         ArrayList<User> students = new ArrayList<>();
         JSONParser parser = new JSONParser();
         try {
-            FileReader reader = new FileReader("student.json");
+            FileReader reader = new FileReader(fileName);
             JSONArray studentsJSON = (JSONArray) parser.parse(reader);
             for (Object o : studentsJSON) {
                 JSONObject studentJSON = (JSONObject) o;

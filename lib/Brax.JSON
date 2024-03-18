@@ -9,8 +9,28 @@
         "major": "CS",
         "advisorId": "6594b968-f276-4223-9372-e90773efbac6",
         "coursesTaken": [
-            "bc3e4b72-4626-469f-9259-9a8344349983",
-            "9ea4a20c-f961-4c31-aa76-c283ae588c47"
+            "12224407-e656-4fe7-9078-88f1d9dc8325",
+            "4bd274cb-260e-47a5-9893-203a3943d704",
+            "2e2ebf3f-c4d3-4dae-956b-d8afa7fca627",
+            "3cca9c4e-a195-4759-a761-cfe09adb20b8",
+            "c9e4096c-593a-4a4e-8e04-effc8d448835",
+            "980e1056-4ed2-4459-b0e7-56d78eca5d73",
+            "3d7aa3f8-bfb0-4f9e-af57-49818eacf9a6",
+            "a379a182-57c9-4b28-950d-35903009bce3",
+            "b6bf4208-6933-4e10-a961-118f12d7acba",
+            "57eaa5d5-a439-43b1-87fc-2d3a4c0b9cd6",
+            "9b9ea0d0-3574-44be-b6cf-1ef50ce2aa23",
+            "789c6ed0-53e3-476c-8761-f08bf727d08c",
+            "5b75b0c3-6634-4ac2-bae2-2234c925858c",
+            "928eb174-dea9-4b98-80b1-ac594c4360f8",
+            "66a95212-0d75-4fae-97ff-c3c76c29d47e",
+            "75764c82-d463-4fcf-a367-e7f925416456",
+            "20cef024-e96e-48a6-b9f1-ed1dd1657c63",
+            "dd218911-2c00-46b4-99fc-0aa909331369",
+            "730005f1-113d-446e-865c-31b46dfbc924",
+            "c85eb519-e97b-488b-ba02-2947764cfe92",
+            "f8b358bf-d69e-4aae-b10c-8dc98f1f651f",
+            "193087e4-a523-4b5f-9ce2-3aa1b5e614b3"
         ],
         "currentSemesterCourses": [
             "CSCE146",
@@ -20,6 +40,6 @@
             "CSCE215"
         ],
         "type": "STUDENT",
-        "grade": []
+        "grade": ["A", "A", "A", "A","A", "A", "A", "A","A", "A", "A", "A","A", "A", "A", "A","A", "A","A", "A", "A", "A"]
     }
 ]
