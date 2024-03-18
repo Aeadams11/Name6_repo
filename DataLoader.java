@@ -77,10 +77,28 @@ public static ArrayList<Course> getCourses() {
             String instructor = (String) courseJSON.get("instructor");
             String meetingTime = (String) courseJSON.get("meetingTime");
             int creditHours = ((Long) courseJSON.get("creditHours")).intValue();
-            char minGrade = ((String) courseJSON.get("minGrade")).charAt(0);
-            String department = (String) courseJSON.get("department");
+            String semester = "";
+
             Course course = new Course(courseID, courseName, description, instructor, meetingTime, creditHours,
-                    minGrade, department);
+                    semester);
+
+            JSONArray prereqsJSON = (JSONArray) courseJSON.get("prerequisites");
+            JSONArray coreqsJSON = (JSONArray) courseJSON.get("corequisites");
+
+            if (prereqsJSON != null) {
+                for (Object prereqObj : prereqsJSON) {
+                    String prereqID = (String) prereqObj;
+                    course.addPrerequisite(prereqID);
+                }
+            }
+
+            if (coreqsJSON != null) {
+                for (Object coreqObj : coreqsJSON) {
+                    String coreqID = (String) coreqObj;
+                    course.addCorequisite(coreqID);
+                }
+            }
+
             courses.add(course);
         }
     } catch (Exception e) {

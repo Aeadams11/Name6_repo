@@ -1,29 +1,32 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Course {
     private String courseID;
     private String courseName;
     private String description;
-    private String instructor; // Assuming this is an ID or identifier for an instructor
+    private String instructor;
     private String meetingTime;
-    private ArrayList<String> prerequisites; // Keeping as String for IDs
-    private ArrayList<String> corequisites; // Similarly for corequisites
+    private Map<String, List<String>> prerequisites;
+    private Map<String, List<String>> corequisites;
     private int creditHours;
     private char minGrade;
     private String department;
+    String semester;
 
     public Course(String courseID, String courseName, String description, String instructor,
-            String meetingTime, int creditHours, char minGrade, String department) {
+            String meetingTime, int creditHours, String semester) {
         this.courseID = courseID;
         this.courseName = courseName;
         this.description = description;
         this.instructor = instructor;
         this.meetingTime = meetingTime;
         this.creditHours = creditHours;
-        this.prerequisites = new ArrayList<>();
-        this.corequisites = new ArrayList<>();
-        this.minGrade = minGrade;
-        this.department = department;
+        this.prerequisites = new HashMap<>();
+        this.corequisites = new HashMap<>();
+        this.semester = semester;
     }
 
     public String getCourseID() {
@@ -42,28 +45,59 @@ public class Course {
         this.courseName = courseName;
     }
 
-    public ArrayList<String> getPreReqs() {
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(String instructor) {
+        this.instructor = instructor;
+    }
+
+    public String getMeetingTime() {
+        return meetingTime;
+    }
+
+    public void setMeetingTime(String meetingTime) {
+        this.meetingTime = meetingTime;
+    }
+
+    public void addPrerequisite(String prereqCourseID) {
+        this.prerequisites.computeIfAbsent(this.courseID, k -> new ArrayList<>()).add(prereqCourseID);
+    }
+
+    public void addCorequisite(String coreqCourseID) {
+        this.corequisites.computeIfAbsent(this.courseID, k -> new ArrayList<>()).add(coreqCourseID);
+    }
+
+    public Map<String, List<String>> getPreReqs() {
         return prerequisites;
     }
 
-    public void setPreReqs(ArrayList<String> preReqs) {
-        this.prerequisites = preReqs;
+    public Map<String, List<String>> getCoreReqs() {
+        return corequisites;
     }
 
-    public char getMinGrade() {
-        return minGrade;
+    public int getCreditHours() {
+        return creditHours;
     }
 
-    public void setMinGrade(char minGrade) {
-        this.minGrade = minGrade;
+    public void setCreditHours(int creditHours) {
+        this.creditHours = creditHours;
     }
 
-    public String getDepartment() {
-        return department;
+    public String getSemester() {
+        return semester;
     }
 
-    public void setDepartment(String department) {
-        this.department = department;
+    public void setSemester(String semester) {
+        this.semester = semester;
     }
-
 }
