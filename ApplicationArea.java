@@ -18,7 +18,8 @@ public class ApplicationArea {
         SCIENTIFIC_COMPUTING,
         AEROSPACE_ENG,
         ROBOTICS,
-        WEB_DEVELOPMENT
+        WEB_DEVELOPMENT,
+        NONE
     }
 
     public ArrayList<Course> listCourses() {
@@ -44,6 +45,7 @@ public class ApplicationArea {
         return true; 
     }
     public static void printApps() {
+        //ideally loop through enum but i couldnt figure that out
        System.out.println("BIOINFORMATICS\n"+
         "CLOUD_DEVELOPMENT\n"+
         "GAME\n"+

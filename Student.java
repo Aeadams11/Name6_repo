@@ -16,7 +16,9 @@ public class Student extends User {
     public static ArrayList<Grade> coursesTaken;
     private String major;
     public static String advisorNotes = "";
-
+    public ApplicationArea.Areas appArea = ApplicationArea.Areas.NONE;
+    //private Admin advisor; 
+    
     public static void displayCoursesTaken() {
         String display = "";
         for (Grade grade : coursesTaken) {
@@ -27,7 +29,11 @@ public class Student extends User {
         }
         System.out.println(display);
     }
-
+    public String displayInfo(){
+        return firstName + " " + lastName + "\nEmail: " + email + "\nMajor: " + major + "Application Area "+ 
+        appArea + "\nAdvisor Notes: " + advisorNotes;
+        //+ "Advisor: "+ advisor.firstName + " " + advisor.lastName 
+    }
     public String getName() {
         return firstname + lastname;
     }
@@ -88,5 +94,22 @@ public class Student extends User {
     public User.UserType getUserType() {
         return UserType.STUDENT;
     }
-
+    public static String getAdvisorNotes() {
+        return advisorNotes;
+    }
+    public static void setAdvisorNotes(String advisorNotes) {
+        Student.advisorNotes = advisorNotes;
+    }
+    public ApplicationArea.Areas getAppArea() {
+        return appArea;
+    }
+    public void setAppArea(ApplicationArea.Areas appArea) {
+        this.appArea = appArea;
+    }
+    // public Admin getAdvisor() {
+    //     return advisor;
+    // }
+    // public void setAdvisor(Admin advisor) {
+    //     this.advisor = advisor;
+    // }
 }

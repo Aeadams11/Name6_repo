@@ -51,10 +51,12 @@ public class Admin extends User {
 
     public static void addAdvisee(String studentID) {
         advisees.add(searchUser(studentID));
+       // searchUser(studentID).setAdvisor(advisor);
     }
     public static void addNote(String studentID) {
         Student student = StudentList.getUser(studentID);
         String note = keyboard.nextLine();
         student.advisorNotes += note; 
+        System.out.println("note successfully added.");
     }
 }

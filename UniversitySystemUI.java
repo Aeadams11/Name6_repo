@@ -37,7 +37,7 @@ public class UniversitySystemUI {
         displayOptions(studentOptions);
         int a = keyboard.nextInt();
         keyboard.nextLine();
-        
+
         //browse application areas
         displayOptions(studentOptions);
         int m = keyboard.nextInt();
@@ -50,6 +50,9 @@ public class UniversitySystemUI {
         int c = keyboard.nextInt();
         keyboard.nextLine();
         //logout
+        System.out.println("You have successfully logged out.");
+
+
         //logback in
         System.out.println(WELCOME_MESSAGE);
         //login
@@ -77,6 +80,7 @@ public class UniversitySystemUI {
         int adminChoice = keyboard.nextInt();
         keyboard.nextLine();
         Student student = searchStudent(); 
+        System.out.println(student.displayInfo());
         //add her as advisee
         displayOptions(studentAdvisorOptions);
         int x = keyboard.nextInt();
@@ -93,7 +97,26 @@ public class UniversitySystemUI {
         keyboard.nextLine();
         Admin.addNote(student.getStudentID());
         //logout
+        displayOptions(studentAdvisorOptions);
+        int k = keyboard.nextInt();
+        keyboard.nextLine();
+        displayOptions(adminOptions);
+        System.out.println("You have succesfully logged out.");
+
+
         //log back in, show changes
+        System.out.println(WELCOME_MESSAGE);
+        displayOptions(loginOptions);
+        int g = keyboard.nextInt(); 
+        keyboard.nextLine();
+        login();
+        displayOptions(adminOptions);
+        //search student
+        int q = keyboard.nextInt();
+        keyboard.nextLine();
+        Student student2 = searchStudent(); 
+        System.out.println(student2.displayInfo());
+
     }
 
     public void displayOptions(String[] options){

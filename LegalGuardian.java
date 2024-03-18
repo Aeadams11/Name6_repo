@@ -20,9 +20,4 @@ public class LegalGuardian extends Student {
         //return true if student has permission
         return true;
     }
-
-    //i feel like we dont need this. if they dont have permission then they dont have, shouldnt need to change
-    // public void setHasPermission(boolean permission) {
-    //     // Implementation
-    // }
 }
