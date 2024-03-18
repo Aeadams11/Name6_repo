@@ -15,12 +15,12 @@ public class Student extends User {
     private boolean Scholarship;
     public static ArrayList<Grade> coursesTaken;
     private String major;
-    public String advisorNotes;
+    public static String advisorNotes = "";
 
     public static void displayCoursesTaken() {
         String display = "";
         for (Grade grade : coursesTaken) {
-            String course = grade.getCourse().getCourseName();
+            String course = grade.getCourse().toString();
             char letterGrade = grade.getGrade();
             // later: check if passed
             display += "Course: " + course + "Grade: " + letterGrade + " ** PASSED **";

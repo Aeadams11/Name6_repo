@@ -36,6 +36,10 @@ public class UniversitySystemUI {
         //browse application areas
         //select digital design option, pick classes
         //generate and print to text a file for 8 semester plan
+        //logout
+        //logback in
+        //show changes made
+        
     }
     public void scenario2(){
         System.out.println(WELCOME_MESSAGE);
@@ -68,7 +72,7 @@ public class UniversitySystemUI {
         displayOptions(studentAdvisorOptions);
         int z = keyboard.nextInt();
         keyboard.nextLine();
-        
+        Admin.addNote(student.getStudentID());
     }
 
     public void displayOptions(String[] options){

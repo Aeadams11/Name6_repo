@@ -1,12 +1,14 @@
 import java.util.ArrayList;
-
+import java.util.Scanner;
 public class Admin extends User {
+    
+    Scanner keyboard = new Scanner(System.in); 
 
     private String role;
     private String department;
     private int accessLevel;
     private ArrayList<String> assignedSections;
-    private ArrayList<Student> advisees; 
+    private static ArrayList<Student> advisees; 
 
     public Admin(String userID, String firstName, String lastName, String email, String password, boolean permission) {
         super(userID, firstName, lastName, email, password, permission);
@@ -47,7 +49,11 @@ public class Admin extends User {
         return UserType.ADMIN; 
     }
 
-    public void addAdvisee(String studentID) {
+    public static void addAdvisee(String studentID) {
         advisees.add(searchUser(studentID));
+    }
+    public void addNote(String studentID) {
+        String note = keyboard.nextLine();
+        Student.advisorNotes += note; 
     }
 }
