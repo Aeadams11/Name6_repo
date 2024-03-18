@@ -13,9 +13,20 @@ public class Student extends User {
     private String StudentID;
     private String email;
     private boolean Scholarship;
-    private ArrayList<Course> coursesTaken;
+    public static ArrayList<Grade> coursesTaken;
     private String major;
+    public String advisorNotes; 
 
+    public static void displayCoursesTaken() {
+        String display = ""; 
+        for(Grade grade : coursesTaken) {
+            String course = grade.getCourse().getCourseName();
+            char letterGrade = grade.getGrade();
+            // later: check if passed
+            display += "Course: " + course + "Grade: " + letterGrade + " ** PASSED **"; 
+        }
+        System.out.println(display); 
+    }
     public String getName() {
         return firstname + lastname;
     }
@@ -61,7 +72,7 @@ public class Student extends User {
         return true;
     }
 
-    public ArrayList<Course> getCoursesTaken() {
+    public ArrayList<Grade> getCoursesTaken() {
         return coursesTaken;
     }
     
@@ -77,5 +88,5 @@ public class Student extends User {
     public User.UserType getUserType() {
         return UserType.STUDENT; 
     }
-
+    
 }

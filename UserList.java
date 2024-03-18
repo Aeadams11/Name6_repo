@@ -20,13 +20,13 @@ public class UserList {
         return true;
     }
 
-    public User getUser(String userName) {
+    public Student getUser(String userName) {
         // check if it exists
         if (!haveUser(userName))
             return null;
         // fake user to info to allow it to compile
         // error: Cannot instantiate the type User
-        User anna = new Student(userName, "Anna", "Adams", "aea5@email.sc.edu", "password123", false);
+        Student anna = new Student(userName, "Anna", "Adams", "aea5@email.sc.edu", "password123", false);
         return anna;
     }
 
@@ -35,5 +35,11 @@ public class UserList {
         //add to user list 
         //return true if account is successfully created
         return true;   
+    }
+    public ArrayList<User> getUsers() {
+        return users; 
+    }
+    public void removeUser(String userid) {
+
     }
 }
