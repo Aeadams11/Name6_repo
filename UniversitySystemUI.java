@@ -32,6 +32,7 @@ public class UniversitySystemUI {
         displayOptions(studentOptions); 
         int choice = keyboard.nextInt();
         keyboard.nextLine();
+        
         Student.displayCoursesTaken();
         //courses not taken
         displayOptions(studentOptions);
