@@ -10,12 +10,13 @@ public class ProgressTracker {
     private Map<Semester, Double> semesterGPA;
     private Map<Course, Grade> grades;
 
-    public void viewCompletedCourses(String studentID){
-        Student student = StudentList.getUser(studentID); 
-        ArrayList<Course> courses = student.getCoursesTaken();
+    public void viewCompletedCourses(String studentID) {
+        Student student = UserList.getUser(studentID);
+        ArrayList<Grade> courses = student.getCoursesTaken();
         System.out.println("Completed courses:");
 
     }
+
     public boolean addCompletedCourse(Course course) {
         // Implementation
     }
