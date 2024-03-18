@@ -1,0 +1,21 @@
+[
+    {
+        "uscID": "28469d67-e0d7-4c75-a86d-a31d08af789a",
+        "firstName": "Tawne",
+        "lastName": "Hill",
+        "username": "THill",
+        "password": "fakePassword1",
+        "email": "THill@email.sc.edu",
+        "major": "CIS",
+        "advisorId": "2594b968-f276-4223-9372-e90773efbac9",
+        "coursesTaken": [
+            "Ac3e4b72-4626-469f-9259-9a8344349983",
+            "Bea4a20c-f961-4c31-aa76-c283ae588c47"
+        ],
+        "currentSemesterCourses": [
+            "CSCE146",
+            "MATH142"
+        ],
+        "type": "STUDENT"
+    } 
+]
