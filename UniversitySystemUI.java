@@ -1,6 +1,6 @@
 import java.util.Scanner; 
 
-public class UISimple {
+public class UniversitySystemUI {
     Scanner keyboard = new Scanner(System.in); 
     public static final String WELCOME_MESSAGE = "***** Welcome to the Scheduler3000 *****";
     public static final String CHOOSE = "Please choose from the following options";
@@ -11,7 +11,7 @@ public class UISimple {
     public static String[] guardianOptions = {"guardian options"}; 
     public static String[] accountTypes = {"Student Account", "Administrative Account", "Legal Guardian Account"};
 
-    UISimple(){
+    UniversitySystemUI(){
         //create instances in sprint 2
     }
 
@@ -97,7 +97,7 @@ public class UISimple {
             System.out.println("User found");  
     }
     public static void main(String[] args) {
-        UISimple UniversityInterface = new UISimple();
+        UniversitySystemUI UniversityInterface = new UniversitySystemUI();
         UniversityInterface.run();
     }
 }
