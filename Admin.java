@@ -6,6 +6,7 @@ public class Admin extends User {
     private String department;
     private int accessLevel;
     private ArrayList<String> assignedSections;
+    private ArrayList<Student> advisees; 
 
     public Admin(String userID, String firstName, String lastName, String email, String password, boolean permission) {
         super(userID, firstName, lastName, email, password, permission);
@@ -36,8 +37,17 @@ public class Admin extends User {
         return null; 
     }
 
-    public static boolean searchUser(String id){
+    public static Student searchUser(String id){
         //return true if user is found
-        return true;
+        return StudentList.getUser(id);
+    }
+
+    
+    public User.UserType getUserType() {
+        return UserType.ADMIN; 
+    }
+
+    public void addAdvisee(String studentID) {
+        advisees.add(searchUser(studentID));
     }
 }

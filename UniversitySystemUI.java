@@ -7,7 +7,7 @@ public class UniversitySystemUI {
     public static String[] loginOptions = {"Create an account", "Log in to a new account"};
     public static String[] studentOptions = {"Generate personal 8 semester plan", "View completed courses", "View unfulfilled requirements", "Browse application areas"};
     public static String[] adminOptions = {"View advisee list", "Search for a student"};
-    public static String[] studentAdvisorOptions = {"View completed courses", "View unfulfilled requirements", "View warnings", "Leave a note", "View/Approve Transfer Credits", "Add to advisee list", "Remove from advisee list"}; 
+    public static String[] studentAdvisorOptions = {"View completed courses", "View unfulfilled requirements", "View warnings", "Leave a note", "View/Approve Transfer Credits", "Add to advisee list", "Remove from advisee list", "Return to main menu"}; 
     public static String[] guardianOptions = {"guardian options"}; 
     public static String[] accountTypes = {"Student Account", "Administrative Account", "Legal Guardian Account"};
 
@@ -32,7 +32,10 @@ public class UniversitySystemUI {
         keyboard.nextLine();
         Student.displayCoursesTaken();
         displayOptions(studentOptions);
-
+        //courses not taken
+        //browse application areas
+        //select digital design option, pick classes
+        //generate and print to text a file for 8 semester plan
     }
     public void scenario2(){
         System.out.println(WELCOME_MESSAGE);
@@ -47,12 +50,25 @@ public class UniversitySystemUI {
         createAccount(); 
         login(); 
         displayOptions(adminOptions);
+        //search student
         int adminChoice = keyboard.nextInt();
         keyboard.nextLine();
-        searchStudent(); 
+        Student student = searchStudent(); 
+        //add her as advisee
         displayOptions(studentAdvisorOptions);
         int x = keyboard.nextInt();
-        keyboard.nextLine();        
+        keyboard.nextLine(); 
+        Admin.addAdvisee(student.getStudentID());
+        //look through current progress
+        displayOptions(studentAdvisorOptions);
+        int y = keyboard.nextInt();
+        keyboard.nextLine();
+        student.displayCoursesTaken();
+        //add note
+        displayOptions(studentAdvisorOptions);
+        int z = keyboard.nextInt();
+        keyboard.nextLine();
+        
     }
 
     public void displayOptions(String[] options){
@@ -90,11 +106,12 @@ public class UniversitySystemUI {
         System.out.println("Welcome!"); 
     }
 
-    public void searchStudent(){
+    public Student searchStudent(){
         System.out.println("Enter the student ID");
         String id = keyboard.nextLine();
-        if(Admin.searchUser(id))
-            System.out.println("User found");  
+        Student student = Admin.searchUser(id);
+        System.out.println("Student: "+student.getFirstName()+ " " + student.getLastName()); 
+        return student;
     }
     public static void main(String[] args) {
         UniversitySystemUI UniversityInterface = new UniversitySystemUI();

@@ -15,12 +15,12 @@ public class StudentList {
         return instance;
     }
 
-    public boolean haveUser(String userName) {
+    public static boolean haveUser(String userName) {
         // TODO: loop throuh arraylist, check if user exists
         return true;
     }
 
-    public Student getUser(String userName) {
+    public static Student getUser(String userName) {
         // check if it exists
         if (!haveUser(userName))
             return null;
