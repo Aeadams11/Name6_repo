@@ -3,9 +3,9 @@ import java.util.ArrayList;
 public class StudentList {
     private static StudentList instance;
     private ArrayList<User> users;
-
+    private static ArrayList<User> students = DataLoader.getStudents("Students.json");
+    
     private void StudentList() {
-        users = DataLoader.getStudents();
     }
 
     public static StudentList getInstance() {
@@ -26,8 +26,8 @@ public class StudentList {
             return null;
         // fake user to info to allow it to compile
         // error: Cannot instantiate the type User
-        Student anna = new Student(userName, "Anna", "Adams", "aea5@email.sc.edu", "password123", false);
-        return anna;
+        Student stu = (Student) students.get(0);
+        return stu;
     }
 
     public static boolean createUser(String userID, String firstName, String lastName, String email, String password,

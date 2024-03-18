@@ -33,13 +33,33 @@
             "193087e4-a523-4b5f-9ce2-3aa1b5e614b3"
         ],
         "currentSemesterCourses": [
-            "CSCE146",
-            "MATH142",
-            "ENGL101",
-            "CHEM111",
-            "CSCE215"
+            "CSCE311",
+            "CSCE330",
+            "CSCE350",
+            "CSCE390",
+            "ENGL462"
         ],
         "type": "STUDENT",
         "grade": ["A", "A", "A", "A","A", "A", "A", "A","A", "A", "A", "A","A", "A", "A", "A","A", "A","A", "A", "A", "A"]
+    },
+    {
+        "uscID": "28469d67-e0d7-4c75-a86d-a31d08af789a",
+        "firstName": "Tawne",
+        "lastName": "Hill",
+        "username": "THill",
+        "password": "fakePassword1",
+        "email": "THill@email.sc.edu",
+        "major": "CIS",
+        "advisorId": "2594b968-f276-4223-9372-e90773efbac9",
+        "coursesTaken": [
+            "b9dcfb53-90b8-4c64-b9c0-a7933604bedc",
+            "42256eb3-038c-4641-8182-7c466661e0f0"
+        ],
+        "currentSemesterCourses": [
+            "",
+            ""
+        ],
+        "type": "STUDENT",
+        "grade": ["A", "A"]
     }
 ]

@@ -18,7 +18,20 @@ public class DataLoader {
             JSONArray studentsJSON = (JSONArray) parser.parse(reader);
             for (Object o : studentsJSON) {
                 JSONObject studentJSON = (JSONObject) o;
-                User student = parseStudent(studentJSON);
+                String uscID = (String) studentJSON.get("uscID");
+                String firstName = (String) studentJSON.get("firstName");
+                String lastName = (String) studentJSON.get("lastName");
+                String user = (String) studentJSON.get("username");
+                String email = (String) studentJSON.get("email");
+                String password = (String) studentJSON.get("password");
+                String major = (String) studentJSON.get("major");
+                String advisorID = (String) studentJSON.get("advisorId");
+                ArrayList<String> coursesTaken = (ArrayList<String>) studentJSON.get("coursesTaken");
+                ArrayList<String> currentCourses = (ArrayList<String>) studentJSON.get("currentSemesterCourses");
+                String type = (String) studentJSON.get("type");
+                String[] grades = (String[]) studentJSON.get("grade");
+                //User student = parseStudent(studentJSON);
+                Student student = new Student(uscID, firstName, lastName, email, password, major, advisorID, coursesTaken, currentCourses, grades, type, false);
                 students.add(student);
             }
         } catch (Exception e) {
@@ -44,15 +57,15 @@ public class DataLoader {
         return facultyMembers;
     }
 
-    private static Student parseStudent(JSONObject userJSON) {
-        return new Student(
-                (String) userJSON.get("uscID"),
-                (String) userJSON.get("firstName"),
-                (String) userJSON.get("lastName"),
-                (String) userJSON.get("email"),
-                (String) userJSON.get("password"),
-                true);
-    }
+    // private static Student parseStudent(JSONObject userJSON) {
+    //     return new Student(
+    //             (String) userJSON.get("uscID"),
+    //             (String) userJSON.get("firstName"),
+    //             (String) userJSON.get("lastName"),
+    //             (String) userJSON.get("email"),
+    //             (String) userJSON.get("password"),
+    //             true);
+    // }
 
     private static Admin parseFaculty(JSONObject userJSON) {
         return new Admin(

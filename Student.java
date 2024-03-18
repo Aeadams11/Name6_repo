@@ -2,8 +2,7 @@ import java.util.ArrayList;
 
 public class Student extends User {
 
-    public Student(String userID, String firstName, String lastName, String email, String password,
-            boolean permission) {
+    public Student(String userID, String firstName, String lastName, String email, String password, String major, String adID, ArrayList<String> coursesTaken, ArrayList<String> currentCourse, String[] grades, String type, boolean permission) {
         super(userID, firstName, lastName, email, password, permission);
     }
 
