@@ -78,7 +78,7 @@ public class DataWriter {
         adminDetails.put("lastName", admin.getLastName());
         adminDetails.put("email", admin.getEmail());
         adminDetails.put("type", admin.getUserType().toString());
-        // Additional admin-specific fields here
+        adminDetails.put("departmentID", admin.getUserType().toString());
 
         return adminDetails;
     }
