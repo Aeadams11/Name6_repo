@@ -82,7 +82,7 @@ public class DataLoader {
         JSONParser parser = new JSONParser();
 
         try {
-            FileReader reader = new FileReader("courses.json");
+            FileReader reader = new FileReader("Courses.json");
             JSONArray coursesJSON = (JSONArray) parser.parse(reader);
             for (Object o : coursesJSON) {
                 JSONObject courseJSON = (JSONObject) o;
