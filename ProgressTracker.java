@@ -18,23 +18,23 @@ public class ProgressTracker {
     }
 
     public boolean addCompletedCourse(Course course) {
-        // Implementation
+        return true; 
     }
 
     public void calculateRemainingCourses() {
-        // Implementation
+
     }
 
     public boolean checkDegreeCompletion() {
-        // Implementation
+        return true; 
     }
 
     public String getProgressReport() {
-        // Implementation
+        return "Progress Report Here";
     }
 
-    public void calculateCurrentGPA() {
-        // Implementation
+    public double calculateCurrentGPA() {
+        return 0.0; 
     }
 
     public boolean addGrade(Course course, Grade grade) {
