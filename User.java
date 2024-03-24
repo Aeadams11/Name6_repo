@@ -18,13 +18,18 @@ public abstract class User {
 
     private static Map<String, User> users = new HashMap<>();
 
-    public User(String userID, String firstName, String lastName, String email, String password, boolean permission) {
+    // default
+    public User() {
+
+    }
+    public User(String userID, String firstName, String lastName, String email, String password, boolean permission, UserType type) {
         this.userID = userID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.permission = permission;
+        this.type = type; 
     }
 
     public String getUserID() {
@@ -53,8 +58,10 @@ public abstract class User {
 
     public abstract UserType getUserType(); // Made abstract to force subclasses to implement
 
-    public void setUserID(String userID) {
+    public boolean setUserID(String userID) {
+        // TODO: method to return true if userID is valid
         this.userID = userID;
+        return true; 
     }
 
     public void setFirstName(String firstName) {
@@ -65,9 +72,7 @@ public abstract class User {
         this.lastName = lastName;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    public abstract boolean setEmail(String email); 
 
     public void setPassword(String password) {
         this.password = password;
@@ -79,13 +84,15 @@ public abstract class User {
 
     // Common methods for login, logout, forgotPassword
     public static boolean login(String username, String password) {
+        // create new user instance
         return true;
     }
 
     public static boolean logout(){
+        // remove user instance
         return true;
     }
     public static void forgotPassword(){
-
+        
     }
 }
