@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class StudentList {
     private static StudentList instance;
+    // what is the difference between these two? 
     private ArrayList<User> users;
     private static ArrayList<User> students = DataLoader.getStudents("Students.json");
     
@@ -15,12 +16,16 @@ public class StudentList {
         return instance;
     }
 
-    public static boolean haveUser(String userName) {
-        // TODO: loop throuh arraylist, check if user exists
-        return true;
+    public boolean haveUser(String userName) {
+        // loop throuh arraylist, check if user exists
+        for(User student : students) {
+            if(student.getUserID().equals(userName))
+                return true;
+        }
+        return false;
     }
 
-    public static Student getUser(String userName) {
+    public Student getUser(String userName) {
         // check if it exists
         if (!haveUser(userName))
             return null;
@@ -30,7 +35,7 @@ public class StudentList {
         return stu;
     }
 
-    public static boolean createUser(String userID, String firstName, String lastName, String email, String password,
+    public boolean createUser(String userID, String firstName, String lastName, String email, String password,
             User.UserType type) {
         // create user
         // add to user list
@@ -43,6 +48,7 @@ public class StudentList {
     }
 
     public void removeUser(String userid) {
-
+        User remove = getUser(userid);
+        students.remove(remove); 
     }
 }
