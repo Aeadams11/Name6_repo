@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Student extends User {
 
     public Student(String userID, String firstName, String lastName, String email, String password, String major, String adID, ArrayList<String> coursesTaken, ArrayList<String> currentCourse, String[] grades, String type, boolean permission) {
-        super(userID, firstName, lastName, email, password, permission);
+        super(userID, firstName, lastName, email, password, permission, type);
     }
 
     private String firstname;
@@ -62,8 +62,14 @@ public class Student extends User {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public boolean setEmail(String email) {
+        //check email format
+        if(email.contains("@email.sc.edu")){
+            this.email = email;
+            return true; 
+        }
+        else
+            return false; 
     }
 
     public boolean hasScholarship() {
@@ -75,6 +81,7 @@ public class Student extends User {
     }
 
     public boolean passedPreReqs() {
+        // why is this under student? passed preReqs for what course? 
         return true;
     }
 
@@ -86,8 +93,11 @@ public class Student extends User {
         return major;
     }
 
-    public void setMajor(String major) {
+    public boolean setMajor(String major) {
+        // ensure that major is acceptable
+        // enum for majors? 
         this.major = major;
+        return true;
     }
 
     public User.UserType getUserType() {
