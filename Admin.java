@@ -4,9 +4,13 @@ public class Admin extends User {
     
     static Scanner keyboard = new Scanner(System.in); 
 
+    // lets make a role enum
     private String role;
+    // department should also be an enum
     private String department;
+    // what is this: 
     private int accessLevel;
+    // what is this: 
     private ArrayList<String> assignedSections;
     private static ArrayList<Student> advisees;
 
@@ -35,11 +39,10 @@ public class Admin extends User {
     public int getAccessLevel() {
         return accessLevel;
     }
-
     public void setAccessLevel(int accessLevel) {
         this.accessLevel = accessLevel;
     }
-
+  
     public ArrayList<String> getAssignedSections() {
         return assignedSections;
     }
@@ -61,40 +64,42 @@ public class Admin extends User {
     }
 
     public void addAdvisee(Student advisee) {
+        // no. we need an instance of an advisor and then we can do this
         Admin.advisees.add(advisee);
     }
 
     public void removeAdvisee(Student advisee) {
+        // same as above. we need an instance of an advisor
         Admin.advisees.remove(advisee);
     }
 
     public User createUserAcc(String userID) {
-        // Implementation
+        // do we want to return a user? or just a boolean? or void? 
         return null;
     }
 
     public boolean deleteUserAcc(String userID) {
-        // Implementation
+    
         return true;
     }
 
     public boolean resetUserPass(String userID, String newPassword) {
-        // Implementation
         return true;
     }
 
     public int assignUserRole(String userID, String role) {
-        // Implementation
+        // idk if we need this method. feels like too much. 
         return 0;
     }
 
     public Report generateReport(String userID) {
-        // Implementation
+        // this should just call the students report method
         return null;
     }
 
     public static Student searchUser(String id) {
         // return true if user is found
+        // shouldnt be static - fix later once we figure out the instances
         return StudentList.getUser(id);
     }
 
