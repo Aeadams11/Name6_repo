@@ -34,7 +34,7 @@ class MajorTester {
     @Test
     public void testAddRequiredCourse() {
         Major major = new Major("Computer Science", null, null);
-        Course course = new Course("CS101", "Introduction to Computer Science", null, null, null, 0, null, null, null);
+        Course course = new Course("2e2ebf3f-c4d3-4dae-956b-d8afa7fca627", "CSCE", null, null, null, 0, null, null, null);
         major.addRequiredCourse(course);
         ArrayList<Course> requiredCourses = major.getRequiredCourses();
         assertEquals(1, requiredCourses.size());
