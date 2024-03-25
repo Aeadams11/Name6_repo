@@ -28,6 +28,27 @@ public class ProgressTracker {
         calculateRemainingCourses();
     }
 
+    public void removeCompletedCourse(Course course) {
+        completedCourses.remove(course);
+        grades.remove(course);
+        calculateCurrentGPA();
+        calculateRemainingCourses();
+    }
+
+    public void setCompletedCourses(List<Course> completedCourses) {
+        this.completedCourses = completedCourses;
+        calculateCurrentGPA();
+        calculateRemainingCourses();
+    }
+
+    public List<Course> getCompletedCourses() {
+        return completedCourses;
+    }
+
+    public double getCurrentGPA() {
+        return currentGPA;
+    }
+
     public void calculateRemainingCourses() {
         remainingCourses.clear();
         for (Course course : majorProgram.getRequiredCourses()) {
@@ -100,6 +121,5 @@ public class ProgressTracker {
     }
 
     public void getEightSemPlan(String userID) {
-        // Placeholder logic to generate an eight-semester plan for a given user ID
     }
 }

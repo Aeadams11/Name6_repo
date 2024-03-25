@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "ProgressTrackerTest",
+            "request": "launch",
+            "mainClass": "ProgressTrackerTest",
+            "projectName": "Name6_repo_7befbd35"
+        }
+    ]
+}
