@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
-public abstract class Major {
+public class Major {
     private String name;
     private ArrayList<Course> requiredCourses;
     private ArrayList<Course> electiveCourses;
 
 
-    public Major(String name) {
+    public Major(String name, ArrayList<Course> electiveCourses, ArrayList<Course> requiredCourses) {
         this.name = name;
         this.requiredCourses = new ArrayList<Course>();
         this.electiveCourses = new ArrayList<Course>();

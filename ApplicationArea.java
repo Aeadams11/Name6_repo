@@ -34,10 +34,12 @@ public class ApplicationArea {
 
     public void addRequiredCourse(Course course) {
         // Implementation
+        this.requiredCourses.add(course);
     }
 
     public void addOptionalCourse(Course course) {
         // Implementation
+        this.optionalCourses.add(course);
     }
 
     public boolean removeCourse(String courseID) {
