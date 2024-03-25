@@ -23,7 +23,6 @@ class AdminTester {
 	public void setup() {
 		//runs before each test
 		//create instance of user
-		User user = new User(); 
 	}
 	
 	@AfterEach
@@ -47,14 +46,14 @@ class AdminTester {
     @Test
     public void testSearchUserSuccess() {
         String userID = "aea5";
-        Admin advisor = new Admin(userID, userID, userID, userID, userID, false, null)
+        Admin advisor = new Admin(userID, userID, userID, userID, userID, false, null);
         assertNotNull(advisor.searchUser(userID));
     }
 
     @Test
     public void testSearchUserFail() {
         String userID = "fakeUser123";
-        Admin advisor = new Admin(userID, userID, userID, userID, userID, false, null)
+        Admin advisor = new Admin(userID, userID, userID, userID, userID, false, null);
         assertNull(advisor.searchUser(userID));
     }
 }
