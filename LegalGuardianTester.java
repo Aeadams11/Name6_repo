@@ -23,7 +23,6 @@ class StudentTester {
 	public void setup() {
 		//runs before each test
 		//create instance of user
-        LegalGuardian user = new LegalGuardian(null, null, null, null, null, false, null);
 	}
 	
 	@AfterEach
@@ -33,13 +32,15 @@ class StudentTester {
 
     @Test
     public void testBadEmailFormat() {
+		LegalGuardian user = new LegalGuardian(null, null, null, null, null, false, null);
         String email = "thisisnotanemail";
         assertFalse(user.setEmail(email));
     }
 
     @Test
     public void testGoodEmailFormat() {
-        String email = "aeadams11@gmail.como";
+		LegalGuardian user = new LegalGuardian(null, null, null, null, null, false, null);
+        String email = "aeadams11@gmail.com";
         assertTrue(user.setEmail(email));
     }
 
