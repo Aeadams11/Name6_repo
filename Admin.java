@@ -106,14 +106,26 @@ public class Admin extends User {
         return UserType.ADMIN;
     }
 
-    public void addAdvisee(String studentID) {
-        advisees.add(searchUser(studentID));
-        searchUser(studentID).setAdvisor(this);
+    public boolean addAdvisee(String studentID) {
+        Student advisee = searchUser(studentID);
+        if(advisee != null){
+            advisees.add(advisee);
+            advisee.setAdvisor(this);
+            return true;
+        }
+        else
+            return false; 
     }
     public void addNote(String studentID) {
         Student student = completeStudentList.getUser(studentID);
         String note = keyboard.nextLine();
         student.advisorNotes += note; 
         System.out.println("note successfully added.");
+    }
+
+    @Override
+    public boolean setEmail(String email) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setEmail'");
     }
 }
