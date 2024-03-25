@@ -23,7 +23,6 @@ class StudentTester {
 	public void setup() {
 		//runs before each test
 		//create instance of user
-		Student user = new Student(null, null, null, null, null, null, null, null, null, null, false, null); 
 	}
 	
 	@AfterEach
@@ -33,23 +32,27 @@ class StudentTester {
 
     @Test
     public void testGoodEmailFormat() {
+        Student user = new Student("aea5", "Anna", "Adams", "aea5@email.sc.edu", "password123", null, null, null, null, null, true, null); 
         String email = "aea5@email.sc.edu";
         assertTrue(user.setEmail(email));
     }
 
     @Test
     public void testBadEmailFormat() {
+        Student user = new Student("aea5", "Anna", "Adams", null, "password123", null, null, null, null, null, true, null); 
         String email = "aeadams11@gmail.com";
         assertFalse(user.setEmail(email));
     }
 
     @Test
     public void checkSetMajorTrue() {
+        Student user = new Student("aea5", "Anna", "Adams", "aea5@email.sc.edu", "password123", null, null, null, null, null, true, null); 
         String major = "Biology";
         assertTrue(user.setMajor(major)); 
     }
     @Test
     public void testSetMajorFalse() {
+        Student user = new Student("aea5", "Anna", "Adams", "aea5@email.sc.edu", "password123", null, null, null, null, null, true, null); 
         String major = "Recess";
         assertFalse(user.setMajor(major)); 
     }
