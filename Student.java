@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Student extends User {
 
-    public Student(String userID, String firstName, String lastName, String email, String password, String major, String adID, ArrayList<String> coursesTaken, ArrayList<String> currentCourse, String[] grades, String type, boolean permission) {
+    public Student(String userID, String firstName, String lastName, String email, String password, String major, String adID, ArrayList<String> coursesTaken, ArrayList<String> currentCourse, String[] grades, boolean permission, UserType type) {
         super(userID, firstName, lastName, email, password, permission, type);
     }
 
@@ -14,9 +14,9 @@ public class Student extends User {
     private boolean Scholarship;
     public static ArrayList<Grade> coursesTaken;
     private String major;
-    public static String advisorNotes = "";
+    public String advisorNotes = "";
     public ApplicationArea.Areas appArea = ApplicationArea.Areas.NONE;
-    //private Admin advisor; 
+    private Admin advisor; 
     
     public static void displayCoursesTaken() {
         String display = "";
@@ -103,22 +103,26 @@ public class Student extends User {
     public User.UserType getUserType() {
         return UserType.STUDENT;
     }
-    public static String getAdvisorNotes() {
+    public String getAdvisorNotes() {
         return advisorNotes;
     }
-    public static void setAdvisorNotes(String advisorNotes) {
-        Student.advisorNotes = advisorNotes;
+    public void setAdvisorNotes(String advisorNotes) {
+        // do we need a setter for this? 
+        this.advisorNotes = advisorNotes;
     }
     public ApplicationArea.Areas getAppArea() {
         return appArea;
     }
     public void setAppArea(ApplicationArea.Areas appArea) {
+        // need to implement a check to make sure application area
+        // is valid
         this.appArea = appArea;
     }
-    // public Admin getAdvisor() {
-    //     return advisor;
-    // }
-    // public void setAdvisor(Admin advisor) {
-    //     this.advisor = advisor;
-    // }
+    
+    public Admin getAdvisor() {
+        return advisor;
+    }
+    public void setAdvisor(Admin advisor) {
+        this.advisor = advisor;
+    }
 }
