@@ -1,6 +1,7 @@
 public class Grade {
     private Course course;
     private char grade;
+    private int numGrade;
 
     public Grade(Course course, char grade) {
         this.course = course;
@@ -28,5 +29,12 @@ public class Grade {
     }
     public void setGrade(char grade) {
         this.grade = grade;
+    }
+    public double getGradeValue() {
+        if (numGrade >= 90) return 4.0;
+        else if (numGrade >= 80) return 3.0;
+        else if (numGrade >= 70) return 2.0;
+        else if (numGrade >= 60) return 1.0;
+        else return 0.0;
     }
 }
