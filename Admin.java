@@ -13,11 +13,13 @@ public class Admin extends User {
     // what is this: 
     private ArrayList<String> assignedSections;
     private static ArrayList<Student> advisees;
+    private StudentList completeStudentList; // will prob need to initialize this
 
-    public Admin(String userID, String firstName, String lastName, String email, String password, boolean permission) {
-        super(userID, firstName, lastName, email, password, permission);
+    public Admin(String userID, String firstName, String lastName, String email, String password, boolean permission, UserType type) {
+        super(userID, firstName, lastName, email, password, permission, type);
+        // what is assigned sections? 
         this.assignedSections = new ArrayList<>();
-        Admin.advisees = new ArrayList<>();
+        Admin.advisees = new ArrayList<Student>();
     }
 
     public String getRole() {
@@ -64,13 +66,11 @@ public class Admin extends User {
     }
 
     public void addAdvisee(Student advisee) {
-        // no. we need an instance of an advisor and then we can do this
-        Admin.advisees.add(advisee);
+        advisees.add(advisee);
     }
 
     public void removeAdvisee(Student advisee) {
-        // same as above. we need an instance of an advisor
-        Admin.advisees.remove(advisee);
+        advisees.remove(advisee);
     }
 
     public User createUserAcc(String userID) {
@@ -79,11 +79,12 @@ public class Admin extends User {
     }
 
     public boolean deleteUserAcc(String userID) {
-    
+        // how? delete from User ArrayList? 
         return true;
     }
 
     public boolean resetUserPass(String userID, String newPassword) {
+        // im thinking we scrap this method - same reason as below
         return true;
     }
 
@@ -92,27 +93,25 @@ public class Admin extends User {
         return 0;
     }
 
-    public Report generateReport(String userID) {
+    public void generateReport(String userID) {
         // this should just call the students report method
-        return null;
     }
 
-    public static Student searchUser(String id) {
-        // return true if user is found
-        // shouldnt be static - fix later once we figure out the instances
-        return StudentList.getUser(id);
+    public Student searchUser(String id) {
+        Student found = completeStudentList.getUser(id);
+        return found;
     }
 
     public User.UserType getUserType() {
         return UserType.ADMIN;
     }
 
-    public static void addAdvisee(String studentID) {
+    public void addAdvisee(String studentID) {
         advisees.add(searchUser(studentID));
-       // searchUser(studentID).setAdvisor(advisor);
+        searchUser(studentID).setAdvisor(this);
     }
-    public static void addNote(String studentID) {
-        Student student = StudentList.getUser(studentID);
+    public void addNote(String studentID) {
+        Student student = completeStudentList.getUser(studentID);
         String note = keyboard.nextLine();
         student.advisorNotes += note; 
         System.out.println("note successfully added.");
