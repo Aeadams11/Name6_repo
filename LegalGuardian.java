@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class LegalGuardian extends Student {
     public LegalGuardian(String userID, String firstName, String lastName, String email, String password,
             boolean permission, UserType type) {
-            super(userID, firstName, lastName, email, password, email, password, null, null, null, type, permission);
+            super(userID, firstName, lastName, email, password, email, password, null, null, null, permission, type);
     }
 
     private String firstName;
