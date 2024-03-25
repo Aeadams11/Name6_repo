@@ -97,8 +97,9 @@ public class Course {
     public void setCorequisites(List<Map<String, Object>> corequisites) {
         this.corequisites = corequisites;
     }
+
     public String toString() {
         String fullName = subject + number + ": " + name;
-        return fullName; 
+        return fullName;
     }
 }
