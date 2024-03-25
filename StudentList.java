@@ -7,6 +7,7 @@ public class StudentList {
     private static ArrayList<User> students = DataLoader.getStudents("Students.json");
     
     private void StudentList() {
+        // initialize here
     }
 
     public static StudentList getInstance() {
@@ -31,6 +32,7 @@ public class StudentList {
             return null;
         // fake user to info to allow it to compile
         // error: Cannot instantiate the type User
+        // feel like this method is bad
         Student stu = (Student) students.get(0);
         return stu;
     }
