@@ -1,32 +1,27 @@
-
 public class Grade {
-    private int a = 90;
-    private int b = 80;
-    private int c = 70;
-    private int d = 60;
-    private int f = 50;
-    private String letterGrade = "a,b,c,d,f";
+    private int score; 
 
+    public Grade(int score) {
+        this.score = score;
+    }
 
-public String getGradeValue(int grade, String letterGrade){
-    
-    if(grade >= 90){
-        letterGrade = "a";
+    public int getScore() {
+        return score;
     }
-    else if(grade >= 80 && grade < 90 ) {
-        letterGrade = "b";
+
+    public String toLetterGrade() {
+        if (score >= 90) return "A";
+        else if (score >= 80) return "B";
+        else if (score >= 70) return "C";
+        else if (score >= 60) return "D";
+        else return "F";
     }
-    else if(grade >= 70 && grade < 80) {
-        letterGrade = "c";
+
+    public double toGPA() {
+        if (score >= 90) return 4.0;
+        else if (score >= 80) return 3.0;
+        else if (score >= 70) return 2.0;
+        else if (score >= 60) return 1.0;
+        else return 0.0;
     }
-    else if(grade >= 60 && grade < 70) {
-        letterGrade = "d";
-    }
-    else if(grade >= 50 && grade < 60) {
-        letterGrade = "f";
-    }
-    return letterGrade;
-    }
-public 
-    
 }

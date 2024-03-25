@@ -31,8 +31,12 @@ public class Admin extends User {
         return 0; 
     }
 
+<<<<<<< Updated upstream
     public Report generateReport(String userID) {
         
         return null; 
     }
+=======
+
+>>>>>>> Stashed changes
 }

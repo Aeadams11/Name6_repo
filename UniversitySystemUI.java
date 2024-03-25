@@ -51,5 +51,9 @@ public class UniversitySystemUI {
         UniversitySystemUI uniInterface = new UniversitySystemUI();
         uniInterface.run();
     }
+<<<<<<< Updated upstream
     
 }
+=======
+}
+>>>>>>> Stashed changes
