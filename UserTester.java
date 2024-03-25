@@ -8,6 +8,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import User.UserType;
+
 class UserTester {
     @BeforeClass
 	public void oneTimeSetup() {
@@ -23,7 +25,6 @@ class UserTester {
 	public void setup() {
 		//runs before each test
 		//create instance of user
-		User user = new User(); 
 	}
 	
 	@AfterEach
@@ -42,18 +43,21 @@ class UserTester {
 
     @Test
 	public void testGoodUserID() {
+		User user = new User("aea5", "anna", "adams", "aea5@email.sc.edu", "password123", true, User.UserType.STUDENT);
 		String ID = "aea5";
 		assertTrue(user.setUserID(ID)); 
 	}
 
 	@Test 
 	public void testBadUserID() {
+		User user = new User("aea5", "anna", "adams", "aea5@email.sc.edu", "password123", true, User.UserType.STUDENT);
 		String ID = "";
 		assertFalse(user.setUserID(ID)); 
 	}
 
 	@Test
 	public void testSuccessfulLogin() {
+		User user = new User("aea5", "anna", "adams", "aea5@email.sc.edu", "password123", true, User.UserType.STUDENT);
 		String username = "aea5";
 		String password = "password123";
 		assertTrue(user.login(username, password));
@@ -61,6 +65,7 @@ class UserTester {
 
 	@Test
 	public void testBadLogin() {
+		User user = new User("aea5", "anna", "adams", "aea5@email.sc.edu", "password123", true, User.UserType.STUDENT);
 		String username = "fakeUser2002";
 		String password = "iLoveClemson";
 		assertFalse(user.login(username, password));
@@ -68,6 +73,7 @@ class UserTester {
 
 	@Test 
 	public void testSuccessulLogout() {
+		User user = new User("aea5", "anna", "adams", "aea5@email.sc.edu", "password123", true, User.UserType.STUDENT);
 		assertTrue(user.logout());
 	}
 
