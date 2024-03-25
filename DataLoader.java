@@ -18,20 +18,39 @@ public class DataLoader {
             JSONArray studentsJSON = (JSONArray) parser.parse(reader);
             for (Object o : studentsJSON) {
                 JSONObject studentJSON = (JSONObject) o;
+
                 String uscID = (String) studentJSON.get("uscID");
                 String firstName = (String) studentJSON.get("firstName");
                 String lastName = (String) studentJSON.get("lastName");
-                String user = (String) studentJSON.get("username");
                 String email = (String) studentJSON.get("email");
                 String password = (String) studentJSON.get("password");
                 String major = (String) studentJSON.get("major");
                 String advisorID = (String) studentJSON.get("advisorId");
-                ArrayList<String> coursesTaken = (ArrayList<String>) studentJSON.get("coursesTaken");
-                ArrayList<String> currentCourses = (ArrayList<String>) studentJSON.get("currentSemesterCourses");
-                String type = (String) studentJSON.get("type");
-                String[] grades = (String[]) studentJSON.get("grade");
-                //User student = parseStudent(studentJSON);
-                Student student = new Student(uscID, firstName, lastName, email, password, major, advisorID, coursesTaken, currentCourses, grades, type, false);
+
+                JSONArray coursesTakenJSON = (JSONArray) studentJSON.get("coursesTaken");
+                ArrayList<String> coursesTaken = new ArrayList<>();
+                for (Object course : coursesTakenJSON) {
+                    coursesTaken.add((String) course);
+                }
+
+                JSONArray currentCoursesJSON = (JSONArray) studentJSON.get("currentSemesterCourses");
+                ArrayList<String> currentCourses = new ArrayList<>();
+                for (Object course : currentCoursesJSON) {
+                    currentCourses.add((String) course);
+                }
+
+                JSONArray gradesJSON = (JSONArray) studentJSON.get("grade");
+                String[] grades = new String[gradesJSON.size()];
+                for (int i = 0; i < gradesJSON.size(); i++) {
+                    grades[i] = (String) gradesJSON.get(i);
+                }
+
+                String typeStr = (String) studentJSON.get("type");
+                User.UserType type = User.UserType.valueOf(typeStr.toUpperCase());
+
+                Student student = new Student(uscID, firstName, lastName, email, password, major, advisorID,
+                        coursesTaken, currentCourses, grades, false, type);
+
                 students.add(student);
             }
         } catch (Exception e) {
@@ -40,11 +59,11 @@ public class DataLoader {
         return students;
     }
 
-    public static ArrayList<User> getFaculty() {
+    public static ArrayList<User> getFaculty(String filename) {
         ArrayList<User> facultyMembers = new ArrayList<>();
         JSONParser parser = new JSONParser();
         try {
-            FileReader reader = new FileReader("faculty.json");
+            FileReader reader = new FileReader(filename);
             JSONArray facultyJSON = (JSONArray) parser.parse(reader);
             for (Object o : facultyJSON) {
                 JSONObject facultyMemberJSON = (JSONObject) o;
@@ -58,24 +77,24 @@ public class DataLoader {
     }
 
     // private static Student parseStudent(JSONObject userJSON) {
-    //     return new Student(
-    //             (String) userJSON.get("uscID"),
-    //             (String) userJSON.get("firstName"),
-    //             (String) userJSON.get("lastName"),
-    //             (String) userJSON.get("email"),
-    //             (String) userJSON.get("password"),
-    //             true);
+    // return new Student(
+    // (String) userJSON.get("uscID"),
+    // (String) userJSON.get("firstName"),
+    // (String) userJSON.get("lastName"),
+    // (String) userJSON.get("email"),
+    // (String) userJSON.get("password"),
+    // true);
     // }
 
-    private static Admin parseFaculty(JSONObject userJSON) {
-        return new Admin(
-                (String) userJSON.get("facultyId"),
-                (String) userJSON.get("firstName"),
-                (String) userJSON.get("lastName"),
-                (String) userJSON.get("email"),
-                "password",
-                true);
-    }
+    // private static Admin parseFaculty(JSONObject userJSON) {
+    // return new Admin(
+    // (String) userJSON.get("facultyId"),
+    // (String) userJSON.get("firstName"),
+    // (String) userJSON.get("lastName"),
+    // (String) userJSON.get("email"),
+    // "password",
+    // true);
+    // } commenting out for
 
     public static ArrayList<Course> getCourses() {
         ArrayList<Course> courses = new ArrayList<>();
@@ -86,26 +105,17 @@ public class DataLoader {
             JSONArray coursesJSON = (JSONArray) parser.parse(reader);
             for (Object o : coursesJSON) {
                 JSONObject courseJSON = (JSONObject) o;
-                String uuid = (String) courseJSON.get("uuid");
-                String subject = (String) courseJSON.get("subject");
-                String number = (String) courseJSON.get("number");
-                String name = (String) courseJSON.get("name");
+                String courseID = (String) courseJSON.get("uuid");
+                String courseName = (String) courseJSON.get("name");
                 String description = (String) courseJSON.get("description");
-                double creditHours = Double.parseDouble(courseJSON.get("credit_hours").toString());
+                String instructor = "Default Instructor";
+                String meetingTime = "TBA";
+                int creditHours = Integer.parseInt((String) courseJSON.get("credit_hours"));
                 JSONArray semestersJSON = (JSONArray) courseJSON.get("semesters");
-                List<String> semesters = new ArrayList<String>();
-                for (Object semester : semestersJSON) {
-                    semesters.add((String) semester);
-                }
+                String semester = semestersJSON.isEmpty() ? "Unspecified" : (String) semestersJSON.get(0);
 
-                List<Map<String, Object>> prerequisites = new ArrayList<Map<String, Object>>();
-                parseRequirements((JSONArray) courseJSON.get("prerequisites"), prerequisites);
-
-                List<Map<String, Object>> corequisites = new ArrayList<Map<String, Object>>();
-                parseRequirements((JSONArray) courseJSON.get("corequisites"), corequisites);
-
-                Course course = new Course(uuid, subject, number, name, description, creditHours, semesters,
-                        prerequisites, corequisites);
+                Course course = new Course(courseID, courseName, description, instructor, meetingTime, creditHours,
+                        semester);
                 courses.add(course);
             }
         } catch (Exception e) {

@@ -1,0 +1,14 @@
+[
+    {
+        "facultyId": "6594b968-f276-4223-9372-e90773efcac7",
+        "firstName": "Doctor",
+        "lastName": "Professor",
+        "email": "docprof@email.sc.edu",
+        "departmentId": "9ea4a20c-f961-4c31-aa76-c283ae598c47",
+        "isAdvisor": true,
+        "adviseeIDs": [
+            "c2d9df16-4c12-4a09-bfa2-87e399791e1a"
+        ],
+        "type": "ADMIN"
+    }
+]
