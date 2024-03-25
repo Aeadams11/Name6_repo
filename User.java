@@ -93,6 +93,6 @@ public abstract class User {
         return true;
     }
     public static void forgotPassword(){
-        
+        // idk how to do this method 
     }
 }
