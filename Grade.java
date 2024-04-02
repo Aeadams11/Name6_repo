@@ -61,6 +61,6 @@ public class Grade {
 
     @Override
     public String toString() {
-        return "Grade [course=" + course + ", grade=" + grade + ", score=" + score + "]";
+        return "Course = " + course.fullCourseName() + ", grade = " + grade + ", score = " + score;
     }
 }
