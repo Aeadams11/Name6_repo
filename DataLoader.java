@@ -106,16 +106,19 @@ public class DataLoader {
             for (Object o : coursesJSON) {
                 JSONObject courseJSON = (JSONObject) o;
                 String courseID = (String) courseJSON.get("uuid");
+                String subject = (String) courseJSON.get("subject");
+                int number = Integer.parseInt((String) courseJSON.get("number"));
                 String courseName = (String) courseJSON.get("name");
                 String description = (String) courseJSON.get("description");
-                String instructor = "Default Instructor";
-                String meetingTime = "TBA";
+                //String instructor = "Default Instructor";
+                //String meetingTime = "TBA";
                 int creditHours = Integer.parseInt((String) courseJSON.get("credit_hours"));
                 JSONArray semestersJSON = (JSONArray) courseJSON.get("semesters");
                 String semester = semestersJSON.isEmpty() ? "Unspecified" : (String) semestersJSON.get(0);
-
-                Course course = new Course(courseID, courseName, description, instructor, meetingTime, creditHours,
-                        semester);
+                String[] semesters = (String[]) courseJSON.get("semesters"); 
+                //pre and co reqs
+                Course course = new Course(courseID, courseName, description, semesters, creditHours,
+                        );
                 courses.add(course);
             }
         } catch (Exception e) {

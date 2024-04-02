@@ -5,28 +5,25 @@ import java.util.Map;
 
 public class Course {
     private String courseID;
+    private String subject;
+    private int number;
     private String courseName;
     private String description;
-    private String instructor;
-    private String meetingTime;
     private Map<String, List<String>> prerequisites;
     private Map<String, List<String>> corequisites;
     private int creditHours;
     private char minGrade;
-    private String department;
-    private String semester;
+    private String[] semesters;
 
     public Course(String courseID, String courseName, String description, String instructor,
-            String meetingTime, int creditHours, String semester) {
+            String meetingTime, int creditHours, String[] semesters) {
         this.courseID = courseID;
         this.courseName = courseName;
         this.description = description;
-        this.instructor = instructor;
-        this.meetingTime = meetingTime;
         this.creditHours = creditHours;
         this.prerequisites = new HashMap<>();
         this.corequisites = new HashMap<>();
-        this.semester = semester;
+        this.semesters = semesters;
     }
 
     public String getCourseID() {
@@ -53,21 +50,6 @@ public class Course {
         this.description = description;
     }
 
-    public String getInstructor() {
-        return instructor;
-    }
-
-    public void setInstructor(String instructor) {
-        this.instructor = instructor;
-    }
-
-    public String getMeetingTime() {
-        return meetingTime;
-    }
-
-    public void setMeetingTime(String meetingTime) {
-        this.meetingTime = meetingTime;
-    }
 
     public void addPrerequisite(String prereqCourseID) {
         this.prerequisites.computeIfAbsent(this.courseID, k -> new ArrayList<>()).add(prereqCourseID);
@@ -93,11 +75,11 @@ public class Course {
         this.creditHours = creditHours;
     }
 
-    public String getSemester() {
-        return semester;
+    public String[] getSemester() {
+        return semesters;
     }
 
-    public void setSemester(String semester) {
-        this.semester = semester;
+    public void setSemester(String[] semesters) {
+        this.semesters = semesters;
     }
 }
